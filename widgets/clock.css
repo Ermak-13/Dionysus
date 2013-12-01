@@ -1,0 +1,9 @@
+.widget.clock {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.widget.clock .center {
+  text-align: center;
+  margin-top: 40px;
+}

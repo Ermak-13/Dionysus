@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>New Tab</title>
+
+    <link rel="stylesheet" type="text/css" href="libs/jquery.gridster.min.css">
+    <link rel="stylesheet" type="text/css" href="desktop.css">
+    <link rel="stylesheet" type="text/css" href="widgets/clock.css">
+
+    <script type="text/javascript" src="libs/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="libs/underscore-min.js"></script>
+    <script type="text/javascript" src="libs/backbone-min.js"></script>
+    <script type="text/javascript" src="libs/jquery.gridster.min.js"></script>
+    <script type="text/javascript" src="libs/mustache.js"></script>
+</head>
+
+<body>
+    <div class="gridster">
+        <ul>
+        </ul>
+    </div>
+
+    <script id="widget-clock-template" type="text/template">
+        <div class="center">
+            <span class="title">{{title}}</span>
+            <span class="hours">{{hours}}</span>
+            <span class="colon">:</span>
+            <span class="minutes">{{minutes}}</span>
+            <span class="colon">:</span>
+            <span class="seconds">{{seconds}}</span>
+        </div>
+    </script>
+
+    <script type="text/javascript" src="desktop.js"></script>
+    <script type="text/javascript" src="widgets/clock.js"></script>
+</body>
+</html>
