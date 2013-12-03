@@ -1,0 +1,14 @@
+.widget.calendar {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.widget.calendar .day {
+  font-size: 40px;
+}
+
+.widget.calendar .center {
+  text-align: center;
+  margin-top: 15px;
+}

@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="libs/jquery.gridster.min.css">
     <link rel="stylesheet" type="text/css" href="desktop.css">
     <link rel="stylesheet" type="text/css" href="widgets/clock.css">
+    <link rel="stylesheet" type="text/css" href="widgets/calendar.css">
 
     <script type="text/javascript" src="libs/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="libs/underscore-min.js"></script>
@@ -32,7 +33,15 @@
         </div>
     </script>
 
+    <script id="widget-calendar-template" type="text/template">
+        <div class="center">
+            <div class="day">{{day}}</div>
+            <div class="month">{{month}}</div>
+        </div>
+    </script>
+
     <script type="text/javascript" src="desktop.js"></script>
     <script type="text/javascript" src="widgets/clock.js"></script>
+    <script type="text/javascript" src="widgets/calendar.js"></script>
 </body>
 </html>
