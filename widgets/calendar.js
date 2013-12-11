@@ -36,7 +36,7 @@
                     currentDateTime = new Date();
 
                 return {
-                    'day': currentDateTime.getDay(),
+                    'day': currentDateTime.getDate(),
                     'month': getNiceMonthFormat(currentDateTime.getMonth())
                 };
             }
