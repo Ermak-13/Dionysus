@@ -1,0 +1,27 @@
+.widget.bender .center {
+  width: 500px;
+  margin: 15px auto;
+}
+
+.widget.bender .photo {
+    width: 500px;
+}
+
+.widget.bender .jcarousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.widget.bender .jcarousel ul {
+    width: 20000em;
+    position: relative;
+
+    /* Optional, required in this case since it's a <ul> element */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.widget.bender .jcarousel li {
+    float: left;
+}

@@ -5,15 +5,18 @@
     <title>New Tab</title>
 
     <link rel="stylesheet" type="text/css" href="libs/jquery.gridster.min.css">
+
     <link rel="stylesheet" type="text/css" href="desktop.css">
     <link rel="stylesheet" type="text/css" href="widgets/clock.css">
     <link rel="stylesheet" type="text/css" href="widgets/calendar.css">
+    <link rel="stylesheet" type="text/css" href="widgets/bender.css">
 
     <script type="text/javascript" src="libs/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="libs/underscore-min.js"></script>
     <script type="text/javascript" src="libs/backbone-min.js"></script>
     <script type="text/javascript" src="libs/jquery.gridster.min.js"></script>
     <script type="text/javascript" src="libs/mustache.js"></script>
+    <script type="text/javascript" src="libs/jquery.jcarousel.min.js"></script>
 </head>
 
 <body>
@@ -40,8 +43,19 @@
         </div>
     </script>
 
+    <script id="widget-bender-template" type="text/template">
+        <div class="center">
+            <div class="jcarousel">
+                <ul>
+                    {{& assets}}
+                </ul>
+            </div>
+        </div>
+    </script>
+
     <script type="text/javascript" src="desktop.js"></script>
     <script type="text/javascript" src="widgets/clock.js"></script>
     <script type="text/javascript" src="widgets/calendar.js"></script>
+    <script type="text/javascript" src="widgets/bender.js"></script>
 </body>
 </html>

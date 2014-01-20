@@ -5,7 +5,16 @@
 
         Widget: Backbone.View.extend({
             tagName: 'li',
-            className: 'widget'
+            className: 'widget',
+
+            render: function() {
+                var currentTime = Mustache.render(
+                        this.template,
+                        this.getContext()
+                    );
+
+                return this.$el.html(currentTime);
+            }
         }),
 
         settings: {

@@ -6,15 +6,6 @@
             className: 'widget calendar',
             template: $('#widget-calendar-template').html(),
 
-            render: function() {
-                var calendar = Mustache.render(
-                        this.template,
-                        this.getContext()
-                    );
-
-                return this.$el.html(calendar);
-            },
-
             getContext: function() {
                 var getNiceMonthFormat = function(monthIndex) {
                         var monthNames = {

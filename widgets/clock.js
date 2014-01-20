@@ -6,15 +6,6 @@
             className: 'widget clock',
             template: $('#widget-clock-template').html(),
 
-            render: function() {
-                var currentTime = Mustache.render(
-                        this.template,
-                        this.getContext()
-                    );
-
-                return this.$el.html(currentTime);
-            },
-
             getContext: function() {
                 var getNiceFormat = function(number, limit) {
                         var limit = limit || 10;
