@@ -1,9 +1,7 @@
 (function(window, newPage, globalSettings, widgetSettings) {
     var Widget = window.newPage.Widget,
-        gridster = window.newPage.gridster,
-
         ClockView = Widget.extend({
-            className: 'widget clock',
+            widgetName: 'clock',
             template: $('#widget-clock-template').html(),
 
             getContext: function() {
@@ -25,18 +23,15 @@
             }
         });
 
-        var clock = new ClockView();
+    var clock = new ClockView();
+    newPage.addWidget(
+        clock,
+        widgetSettings,
 
-        gridster.add_widget(
-            clock.render(),
-            widgetSettings.width,
-            widgetSettings.height,
-            widgetSettings.positionX,
-            widgetSettings.positionY
-        );
-        newPage.enabledWidgets['clock'] = clock;
-
-        window.setInterval(function() { clock.render(); });
+        function () {
+            window.setInterval(function() { clock.render(); });
+        }
+    );
 
 })(window, window.newPage, window.newPage.settings, 
     window.newPage.settings.widgets.clock || {

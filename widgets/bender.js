@@ -2,10 +2,8 @@
 
 (function(window, newPage, globalSettings, widgetSettings) {
     var Widget = window.newPage.Widget,
-        gridster = window.newPage.gridster,
-
         BenderView = Widget.extend({
-            className: 'widget bender',
+            widgetName: 'bender',
             template: $('#widget-bender-template').html(),
 
             assets: [
@@ -30,29 +28,25 @@
             }
         });
 
-        var bender = new BenderView();
+    var bender = new BenderView();
+    newPage.addWidget(
+        bender,
+        widgetSettings,
 
-        gridster.add_widget(
-            bender.render(),
-            widgetSettings.width,
-            widgetSettings.height,
-            widgetSettings.positionX,
-            widgetSettings.positionY
-        );
+        function () {
+            var jcarousel = bender.$el.find('.jcarousel')
+            jcarousel.jcarousel({
+                wrap: 'circular'
+            });
 
-        var jcarousel = bender.$el.find('.jcarousel')
-        jcarousel.jcarousel({
-            wrap: 'circular'
-        });
-
-        bender.$el.click(function() {
-            jcarousel.jcarousel('scroll', '+=1');
-        });
-
-        newPage.enabledWidgets['bender'] = bender;
+            bender.$el.click(function () {
+                jcarousel.jcarousel('scroll', '+=1');
+            });
+        }
+    );
 
 })(window, window.newPage, window.newPage.settings, 
-    window.newPage.settings.widgets.calendar || {
+    window.newPage.settings.widgets.bender || {
         width: 6,
         height: 5,
         positionX: 1,

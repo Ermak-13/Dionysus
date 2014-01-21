@@ -5,7 +5,10 @@
 
         Widget: Backbone.View.extend({
             tagName: 'li',
-            className: 'widget',
+            className: function () {
+                // return 'widget widget.name'
+                return ['widget', this.widgetName].join(' ');
+            },
 
             render: function() {
                 var currentTime = Mustache.render(
@@ -30,4 +33,20 @@
         }).data('gridster');
 
     window.newPage.gridster = gridster;
+
+    window.newPage.addWidget = function (widget, settings, callback) {
+        this.gridster.add_widget(
+            widget.render(),
+            settings.width,
+            settings.height,
+            settings.positionX,
+            settings.positionY
+        );
+
+        if (callback) {
+            callback();
+        }
+
+        this.enabledWidgets[widget.widgetName] = widget;
+    };
 })(window);

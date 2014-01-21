@@ -1,9 +1,7 @@
 (function(window, newPage, globalSettings, widgetSettings) {
     var Widget = window.newPage.Widget,
-        gridster = window.newPage.gridster,
-
         CalendarView = Widget.extend({
-            className: 'widget calendar',
+            widgetName: 'calendar',
             template: $('#widget-calendar-template').html(),
 
             getContext: function() {
@@ -32,19 +30,16 @@
                 };
             }
         });
+    
+    var calendar = new CalendarView();
+    newPage.addWidget(
+        calendar,
+        widgetSettings,
 
-        var calendar = new CalendarView();
-
-        gridster.add_widget(
-            calendar.render(),
-            widgetSettings.width,
-            widgetSettings.height,
-            widgetSettings.positionX,
-            widgetSettings.positionY
-        );
-        newPage.enabledWidgets['calendar'] = calendar;
-
-        window.setInterval(function() { calendar.render(); }, 60 * 1000);
+        function () {
+            window.setInterval(function () { calendar.render(); }, 60 * 1000);
+        }
+    );
 
 })(window, window.newPage, window.newPage.settings, 
     window.newPage.settings.widgets.calendar || {
