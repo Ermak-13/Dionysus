@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="widgets/clock.css">
     <link rel="stylesheet" type="text/css" href="widgets/calendar.css">
     <link rel="stylesheet" type="text/css" href="widgets/bender.css">
+    <link rel="stylesheet" type="text/css" href="widgets/apps.css">
 
     <script type="text/javascript" src="libs/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="libs/underscore-min.js"></script>
@@ -53,9 +54,40 @@
         </div>
     </script>
 
+    <script id="widget-apps-template" type="text/template">
+        <div class="center">
+            <h3 class="title">apps:</h3>
+            <div class="scrollbar">
+                <table class="apps-table">
+                    <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>version</th>
+                            <th>enabled</th>
+                            <th>type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{& apps}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </script>
+
+    <script id="widget-app-template" type="text/template">
+        <tr>
+            <td>{{& name}}</td>
+            <td>{{version}}</td>
+            <td>{{enabled}}</td>
+            <td>{{type}}</td>
+        </tr>
+    </script>
+
     <script type="text/javascript" src="desktop.js"></script>
     <script type="text/javascript" src="widgets/clock.js"></script>
     <script type="text/javascript" src="widgets/calendar.js"></script>
     <script type="text/javascript" src="widgets/bender.js"></script>
+    <script type="text/javascript" src="widgets/apps.js"></script>
 </body>
 </html>
