@@ -1,0 +1,41 @@
+.widget.apps .center {
+  width: 500px;
+  margin: 5px auto;
+}
+
+.widget.apps .title {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+
+  margin-bottom: 5px;
+}
+
+.widget.apps a {
+  color: white;
+}
+
+.widget.apps .scrollbar {
+  overflow-y: scroll;
+  height: 130px;
+}
+
+.widget.apps .apps-table {
+  border-collapse: collapse;
+}
+
+.widget.apps .apps-table thead {
+  background: #333333;
+}
+
+.widget.apps .apps-table th, td {
+  border-width: 3px;
+  border-style: solid;
+  border-color: white;
+
+  padding: 5px 10px;
+}
+
+.widget.apps .apps-table tr:hover {
+  background: #333333;
+}

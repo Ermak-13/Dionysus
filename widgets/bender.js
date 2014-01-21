@@ -17,7 +17,7 @@
                 var assets = '',
                     templateEl = '<li><img src="{{asset}}" class="photo" /></li>';
 
-                $.each(this.assets, function(index, asset) {
+                _.each(this.assets, function (asset, index) {
                     assets = assets + Mustache.render(
                         templateEl,
                         {'asset':  asset}
