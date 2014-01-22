@@ -1,9 +1,9 @@
-.widget.apps .center {
+.widget.history .center {
   width: 500px;
   margin: 5px auto;
 }
 
-.widget.apps .title {
+.widget.history .title {
   font-size: 24px;
   margin: 0;
   padding: 0;
@@ -11,24 +11,24 @@
   margin-bottom: 5px;
 }
 
-.widget.apps a {
+.widget.history a {
   color: white;
 }
 
-.widget.apps .scrollbar {
+.widget.history .scrollbar {
   overflow-y: auto;
   height: 130px;
 }
 
-.widget.apps .apps-table {
+.widget.history .history-table {
   border-collapse: collapse;
 }
 
-.widget.apps .apps-table thead {
+.widget.history .history-table thead {
   background: #333333;
 }
 
-.widget.apps .apps-table th, td {
+.widget.history .history-table th, td {
   border-width: 3px;
   border-style: solid;
   border-color: white;
@@ -36,6 +36,6 @@
   padding: 5px 10px;
 }
 
-.widget.apps .apps-table tr:hover {
+.widget.history .history-table tr:hover {
   background: #333333;
 }

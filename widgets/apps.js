@@ -7,10 +7,9 @@
             getContext: function() { return {}; },
             renderApps: function() {
                 var appTemplate = $('#widget-app-template').html(),
-
                     _this = this,
 
-                    getLinkName = function (app) {
+                    getNiceLinkName = function (app) {
                         if (app.type == 'packaged_app') {
                             return Mustache.render(
                                 '<a href id="app-{{id}}" class="launch-app" data-app-id="{{id}}">{{name}}</a>',
@@ -37,10 +36,10 @@
                         appsHTML = appsHTML + Mustache.render(
                             appTemplate,
                             {
-                                'name': getLinkName(app),
-                                'version': app.version,
-                                'enabled': app.enabled,
-                                'type': app.type
+                                name: getNiceLinkName(app),
+                                version: app.version,
+                                enabled: app.enabled,
+                                type: app.type
                             }
                         );
                     });

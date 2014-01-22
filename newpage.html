@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="widgets/calendar.css">
     <link rel="stylesheet" type="text/css" href="widgets/bender.css">
     <link rel="stylesheet" type="text/css" href="widgets/apps.css">
+    <link rel="stylesheet" type="text/css" href="widgets/history.css">
 
     <script type="text/javascript" src="libs/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="libs/underscore-min.js"></script>
@@ -84,10 +85,38 @@
         </tr>
     </script>
 
+    <script id="widget-history-template" type="text/template">
+        <div class="center">
+            <h3 class="title">history:</h3>
+            <div class="scrollbar">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>title</th>
+                            <th>time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </script>
+
+    <script id="widget-history-item-template" type="text/template">
+        <tr>
+            <td class="history-item-title">
+                <a href="{{url}}">{{& title}}</a>
+            </td>
+            <td>{{time}}</td>
+        </tr>
+    </script>
+
     <script type="text/javascript" src="desktop.js"></script>
     <script type="text/javascript" src="widgets/clock.js"></script>
     <script type="text/javascript" src="widgets/calendar.js"></script>
     <script type="text/javascript" src="widgets/bender.js"></script>
     <script type="text/javascript" src="widgets/apps.js"></script>
+    <script type="text/javascript" src="widgets/history.js"></script>
 </body>
 </html>
