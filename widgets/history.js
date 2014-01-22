@@ -24,7 +24,6 @@
                     function (historyItems) {
                         var historyHTML = '';
                         _.each(historyItems, function (historyItem, index) {
-                            console.log(historyItem.lastVisitTime);
                             historyHTML = historyHTML + Mustache.render(
                                 historyItemTemplate,
                                 {
