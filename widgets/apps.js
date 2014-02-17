@@ -10,7 +10,7 @@
                     _this = this,
 
                     getNiceLinkName = function (app) {
-                        if (app.type == 'packaged_app') {
+                        if (app.type == 'packaged_app' || app.type == 'hosted_app') {
                             return Mustache.render(
                                 '<a href id="app-{{id}}" class="launch-app" data-app-id="{{id}}">{{name}}</a>',
                                 {
@@ -31,6 +31,14 @@
 
                 chrome.management.getAll(function (apps) {
                     var appsHTML = '';
+
+                    apps = _.sortBy(apps, function (app) {
+                        var priorities = {
+                            'hosted_app': 1,
+                            'package_app': 2
+                        };
+                        return priorities[app.type] || 3;
+                    });
 
                     _.each(apps, function (app, index) {
                         appsHTML = appsHTML + Mustache.render(
