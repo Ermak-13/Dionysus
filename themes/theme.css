@@ -1,0 +1,35 @@
+body {
+  background: url('images/body-bg.jpg');
+}
+
+.widget {
+  background: url('images/widget-bg.png');
+  background-position: repeat;
+
+  border-color: #26572d;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 20px;
+}
+
+.widget.bender img {
+  border-radius: 20px;
+}
+
+.widget, .widget a {
+  color: #205323;
+}
+
+.widget .header {
+  font-size: 26px;
+  text-transform: capitalize;
+
+  margin: 10px auto;
+  padding: 0;
+}
+
+.widget .table td, .widget .table th {
+  border-color: #26572d;
+  border-width: 2px;
+  border-style: solid;
+}

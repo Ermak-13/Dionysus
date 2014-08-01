@@ -6,26 +6,26 @@
             widgetName: 'bender',
             template: $('#widget-bender-template').html(),
 
-            assets: [
-                'widgets/assets/bender/001.jpg',
-                'widgets/assets/bender/002.jpg',
-                'widgets/assets/bender/003.jpg',
-                'widgets/assets/bender/004.jpg',
+            images: [
+                'widgets/images/bender/001.jpg',
+                'widgets/images/bender/002.jpg',
+                'widgets/images/bender/003.jpg',
+                'widgets/images/bender/004.jpg',
             ],
 
             getContext: function() {
-                var assets = '',
+                var images = '',
                     templateEl = '<li><img src="{{asset}}" class="photo" /></li>';
 
-                assets = _.shuffle(this.assets);
-                _.each(assets, function (asset, index) {
-                    assets = assets + Mustache.render(
+                images = _.shuffle(this.images);
+                _.each(images, function (asset, index) {
+                    images = images + Mustache.render(
                         templateEl,
                         {'asset':  asset}
                     );
                 });
 
-                return {'assets': assets};
+                return {'images': images};
             }
         });
 

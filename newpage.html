@@ -4,21 +4,24 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>New Tab</title>
 
+
     <link rel="stylesheet" type="text/css" href="libs/jquery.gridster.min.css">
-
-    <link rel="stylesheet" type="text/css" href="desktop.css">
-    <link rel="stylesheet" type="text/css" href="widgets/clock.css">
-    <link rel="stylesheet" type="text/css" href="widgets/calendar.css">
-    <link rel="stylesheet" type="text/css" href="widgets/bender.css">
-    <link rel="stylesheet" type="text/css" href="widgets/apps.css">
-    <link rel="stylesheet" type="text/css" href="widgets/history.css">
-
     <script type="text/javascript" src="libs/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="libs/underscore-min.js"></script>
     <script type="text/javascript" src="libs/backbone-min.js"></script>
     <script type="text/javascript" src="libs/jquery.gridster.min.js"></script>
     <script type="text/javascript" src="libs/mustache.js"></script>
     <script type="text/javascript" src="libs/jquery.jcarousel.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="desktop.css">
+    <link rel="stylesheet" type="text/css" href="themes/theme.css">
+    <link rel="stylesheet" type="text/css" href="widgets/clock.css">
+    <link rel="stylesheet" type="text/css" href="widgets/calendar.css">
+    <link rel="stylesheet" type="text/css" href="widgets/bender.css">
+    <link rel="stylesheet" type="text/css" href="widgets/apps.css">
+    <link rel="stylesheet" type="text/css" href="widgets/history.css">
+
+
 </head>
 
 <body>
@@ -29,7 +32,7 @@
 
     <script id="widget-clock-template" type="text/template">
         <div class="center">
-            <span class="title">{{title}}</span>
+            <span class="header">{{title}}</span>
             <span class="hours">{{hours}}</span>
             <span class="colon">:</span>
             <span class="minutes">{{minutes}}</span>
@@ -49,7 +52,7 @@
         <div class="center">
             <div class="jcarousel">
                 <ul>
-                    {{& assets}}
+                    {{& images }}
                 </ul>
             </div>
         </div>
@@ -57,9 +60,9 @@
 
     <script id="widget-apps-template" type="text/template">
         <div class="center">
-            <h3 class="title">apps:</h3>
+            <h3 class="header">apps:</h3>
             <div class="scrollbar">
-                <table class="apps-table">
+                <table class="apps-table table">
                     <thead>
                         <tr>
                             <th>name</th>
@@ -87,9 +90,9 @@
 
     <script id="widget-history-template" type="text/template">
         <div class="center">
-            <h3 class="title">history:</h3>
+            <h3 class="header">history:</h3>
             <div class="scrollbar">
-                <table class="history-table">
+                <table class="history-table table">
                     <thead>
                         <tr>
                             <th>title</th>

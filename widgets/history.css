@@ -3,39 +3,6 @@
   margin: 5px auto;
 }
 
-.widget.history .title {
-  font-size: 24px;
-  margin: 0;
-  padding: 0;
-
-  margin-bottom: 5px;
-}
-
-.widget.history a {
-  color: white;
-}
-
-.widget.history .scrollbar {
-  overflow-y: auto;
-  height: 130px;
-}
-
-.widget.history .history-table {
-  border-collapse: collapse;
-}
-
-.widget.history .history-table thead {
-  background: #333333;
-}
-
 .widget.history .history-table th, td {
-  border-width: 3px;
-  border-style: solid;
-  border-color: white;
-
   padding: 5px 10px;
-}
-
-.widget.history .history-table tr:hover {
-  background: #333333;
 }
