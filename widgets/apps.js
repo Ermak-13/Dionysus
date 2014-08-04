@@ -4,30 +4,41 @@
             widgetName: 'apps',
             template: $('#widget-apps-template').html(),
 
-            getContext: function() { return {}; },
+            events: {
+                'click .apps-icon': 'openContent'
+            },
+
+            initialize: function () {
+                this.appsDisplayed = false;
+            },
+
+            openContent: function (e) {
+                if (!this.appsDisplayed) {
+                    this.$el.find('.apps-icon').hide();
+                    this.gridster.resize_widget(apps.$el, 14, 12);
+                    this.$el.find('.apps-container').show();
+                    this.appsDisplayed = true;
+                }
+
+                return false;
+            },
+
+            closeContent: function (e) {
+                this.$el.find('.apps-container').hide();
+                this.gridster.resize_widget(apps.$el, widgetSettings.width, widgetSettings.height);
+                this.$el.find('.apps-icon').show();
+                this.appsDisplayed = false;
+
+                return false;
+            },
+
+            getContext: function () {
+                return {};
+            },
+
             renderApps: function() {
                 var appTemplate = $('#widget-app-template').html(),
-                    _this = this,
-
-                    getNiceLinkName = function (app) {
-                        if (app.type == 'packaged_app' || app.type == 'hosted_app') {
-                            return Mustache.render(
-                                '<a href id="app-{{id}}" class="launch-app" data-app-id="{{id}}">{{name}}</a>',
-                                {
-                                    id: app.id,
-                                    name: app.name
-                                }
-                            );
-                        } else {
-                            return Mustache.render(
-                                '<span id="app-{{id}}" data-app-id="{{id}}">{{name}}</span>',
-                                {
-                                    id: app.id,
-                                    name: app.name
-                                }
-                            );
-                        }
-                    }
+                    _this = this;
 
                 chrome.management.getAll(function (apps) {
                     var appsHTML = '';
@@ -41,18 +52,26 @@
                     });
 
                     _.each(apps, function (app, index) {
+                        var icon = _.last(app.icons),
+                            icon_url = 'themes/images/app-icon.png',
+                            launchedApp = (app.type == 'packaged_app' || app.type == 'hosted_app');
+
+                        if (icon) {
+                            icon_url = icon.url;
+                        }
+
                         appsHTML = appsHTML + Mustache.render(
                             appTemplate,
                             {
-                                name: getNiceLinkName(app),
-                                version: app.version,
-                                enabled: app.enabled,
-                                type: app.type
+                                id: app.id,
+                                name: app.shortName,
+                                icon_url: icon_url,
+                                launchedApp: launchedApp
                             }
                         );
                     });
 
-                    _this.$el.find('.apps-table tbody').append(appsHTML);
+                    _this.$el.find('.apps-content').append(appsHTML);
                     _this.$el.find('.launch-app').click(function () {
                         chrome.management.launchApp($(this).data('app-id'));
                     });
@@ -72,9 +91,9 @@
 
 })(window, window.newPage, window.newPage.settings, 
     window.newPage.settings.widgets.apps || {
-        width: 6,
+        width: 3,
         height: 3,
-        positionX: 7,
+        positionX: 14,
         positionY: 1
     }
 );

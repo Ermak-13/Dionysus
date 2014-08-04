@@ -17,12 +17,14 @@
                     );
 
                 return this.$el.html(currentTime);
-            }
+            },
+
+            closeContent: function () {}
         }),
 
         settings: {
-            widthCell: 75,
-            heightCell: 50,
+            widthCell: 25,
+            heightCell: 25,
             widgets: {}
         }
     };
@@ -42,6 +44,8 @@
             settings.positionX,
             settings.positionY
         );
+
+        widget.gridster = gridster;
 
         if (callback) {
             callback();

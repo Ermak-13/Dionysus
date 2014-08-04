@@ -35,8 +35,8 @@
 
 })(window, window.newPage, window.newPage.settings, 
     window.newPage.settings.widgets.clock || {
-        width: 3,
-        height: 2,
+        width: 6,
+        height: 3,
         positionX: 0,
         positionY: 0
     }

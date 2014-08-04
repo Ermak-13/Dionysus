@@ -43,8 +43,8 @@
 
 })(window, window.newPage, window.newPage.settings, 
     window.newPage.settings.widgets.calendar || {
-        width: 2,
-        height: 2,
+        width: 4,
+        height: 3,
         positionX: 0,
         positionY: 0
     }

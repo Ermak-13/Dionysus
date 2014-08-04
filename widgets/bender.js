@@ -48,9 +48,9 @@
 
 })(window, window.newPage, window.newPage.settings, 
     window.newPage.settings.widgets.bender || {
-        width: 6,
-        height: 5,
+        width: 13,
+        height: 8,
         positionX: 1,
-        positionY: 3
+        positionY: 4
     }
 );

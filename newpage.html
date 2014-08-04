@@ -14,14 +14,13 @@
     <script type="text/javascript" src="libs/jquery.jcarousel.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="desktop.css">
-    <link rel="stylesheet" type="text/css" href="themes/theme.css">
     <link rel="stylesheet" type="text/css" href="widgets/clock.css">
     <link rel="stylesheet" type="text/css" href="widgets/calendar.css">
     <link rel="stylesheet" type="text/css" href="widgets/bender.css">
     <link rel="stylesheet" type="text/css" href="widgets/apps.css">
     <link rel="stylesheet" type="text/css" href="widgets/history.css">
 
-
+    <link rel="stylesheet" type="text/css" href="themes/theme.css">
 </head>
 
 <body>
@@ -60,32 +59,28 @@
 
     <script id="widget-apps-template" type="text/template">
         <div class="center">
-            <h3 class="header">apps:</h3>
-            <div class="scrollbar">
-                <table class="apps-table table">
-                    <thead>
-                        <tr>
-                            <th>name</th>
-                            <th>version</th>
-                            <th>enabled</th>
-                            <th>type</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{& apps}}
-                    </tbody>
-                </table>
+            <a href="#" class="icon apps-icon">
+                <img src="themes/images/apps-icon.png" />
+            </a>
+
+            <div class="container apps-container hidden">
+                <div class="container-inner apps-container-inner">
+                    <h1 class="header">Applications:</h1>
+
+                    <div class="content apps-content">
+                    </div>
+                </div>
             </div>
         </div>
     </script>
 
     <script id="widget-app-template" type="text/template">
-        <tr>
-            <td>{{& name}}</td>
-            <td>{{version}}</td>
-            <td>{{enabled}}</td>
-            <td>{{type}}</td>
-        </tr>
+        <div class="application-container">
+            <div id="app-{{id}}" class="application {{#launchedApp}}launch-app{{/launchedApp}}" data-app-id="{{id}}">
+                <img src="{{ icon_url }}" class="app-icon" />
+                {{name}}
+            </div>
+        </div>
     </script>
 
     <script id="widget-history-template" type="text/template">
@@ -115,11 +110,15 @@
         </tr>
     </script>
 
-    <script type="text/javascript" src="desktop.js"></script>
+    <script type="text/javascript" src="begin.js"></script>
+
     <script type="text/javascript" src="widgets/clock.js"></script>
     <script type="text/javascript" src="widgets/calendar.js"></script>
     <script type="text/javascript" src="widgets/bender.js"></script>
     <script type="text/javascript" src="widgets/apps.js"></script>
     <script type="text/javascript" src="widgets/history.js"></script>
+
+    <script type="text/javascript" src="end.js"></script>
+
 </body>
 </html>

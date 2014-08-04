@@ -51,9 +51,9 @@
 
 })(window, window.newPage, window.newPage.settings, 
     window.newPage.settings.widgets.apps || {
-        width: 6,
-        height: 3,
-        positionX: 7,
+        width: 13,
+        height: 5,
+        positionX: 14,
         positionY: 4
     }
 );
