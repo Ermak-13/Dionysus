@@ -1,4 +1,4 @@
-(function(window, newPage, Views, Models, globalSettings, widgetSettings) {
+(function(window, page, Views, Models, globalSettings, widgetSettings) {
     var HistoryView = Views.Widget.extend({
             widgetName: 'history',
             template: $('#widget-history-template').html(),
@@ -39,7 +39,7 @@
         });
 
     var history = new HistoryView();
-    newPage.addWidget(
+    page.addWidget(
         history,
         widgetSettings,
 

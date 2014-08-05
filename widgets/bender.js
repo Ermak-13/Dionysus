@@ -1,6 +1,6 @@
 // image size 800x480
 
-(function(window, newPage, Views, Models, globalSettings, widgetSettings) {
+(function(window, page, Views, Models, globalSettings, widgetSettings) {
     var BenderView = Views.Widget.extend({
             widgetName: 'bender',
             template: $('#widget-bender-template').html(),
@@ -29,7 +29,7 @@
         });
 
     var bender = new BenderView();
-    newPage.addWidget(
+    page.addWidget(
         bender,
         widgetSettings,
 

@@ -1,4 +1,4 @@
-(function(window, newPage, Views, globalSettings, widgetSettings) {
+(function(window, page, Views, globalSettings, widgetSettings) {
     var AppsView = Views.Widget.extend({
             widgetName: 'apps',
             template: $('#widget-apps-template').html(),
@@ -14,7 +14,7 @@
             openContent: function (e) {
                 if (!this.appsDisplayed) {
                     this.$el.find('.apps-icon').hide();
-                    this.gridster.resize_widget(apps.$el, 14, 12);
+                    this.resize(14, 12);
                     this.$el.find('.apps-container').show();
                     this.appsDisplayed = true;
                 }
@@ -24,7 +24,7 @@
 
             closeContent: function (e) {
                 this.$el.find('.apps-container').hide();
-                this.gridster.resize_widget(apps.$el, widgetSettings.width, widgetSettings.height);
+                this.resize(widgetSettings.width, widgetSettings.height);
                 this.$el.find('.apps-icon').show();
                 this.appsDisplayed = false;
 
@@ -79,7 +79,7 @@
         });
 
     var apps = new AppsView();
-    newPage.addWidget(
+    page.addWidget(
         apps,
         widgetSettings,
 

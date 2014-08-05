@@ -1,4 +1,4 @@
-(function(window, newPage, Views, Models, globalSettings, widgetSettings) {
+(function(window, page, Views, Models, globalSettings, widgetSettings) {
     var ClockView = Views.Widget.extend({
             widgetName: 'clock',
             template: $('#widget-clock-template').html(),
@@ -23,7 +23,7 @@
         });
 
     var clock = new ClockView();
-    newPage.addWidget(
+    page.addWidget(
         clock,
         widgetSettings,
 

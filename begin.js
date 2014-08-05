@@ -18,45 +18,61 @@ window.Models = window.Models || {};
                 return this.$el.html(currentTime);
             },
 
-            closeContent: function () {}
+            closeContent: function () {},
+
+            resize: function (width, height) {
+                if (this.page) {
+                    var gridster = this.page.gridster;
+                    gridster.resize_widget(this.$el, width, height);
+                }
+            }
+        }),
+
+        Page = Backbone.View.extend({
+            el: '.gridster ul',
+
+            enabledWidgets: {},
+
+            settings: {
+                widthCell: 25,
+                heightCell: 25,
+                widgets: {}
+            },
+
+            initialize: function () {
+                var _this = this;
+
+                this.gridster = this.$el.gridster({
+                    widget_base_dimensions: [
+                        _this.settings.widthCell,
+                        _this.settings.heightCell
+                    ],
+                }).data('gridster');
+            },
+
+            addWidget: function (widget, settings, callback) {
+                this.gridster.add_widget(
+                    widget.render(),
+                    settings.width,
+                    settings.height,
+                    settings.positionX,
+                    settings.positionY
+                );
+
+                widget.page = this;
+
+                if (callback) {
+                    callback();
+                }
+
+                this.enabledWidgets[widget.widgetName] = widget;
+            }
         });
 
     Views.Widget = Widget;
+    Views.Page = Page;
 
-    window.newPage = {
-        enabledWidgets: {},
-
-        settings: {
-            widthCell: 25,
-            heightCell: 25,
-            widgets: {}
-        }
-    };
-
-    var settings = window.newPage.settings,
-        gridster = $(".gridster ul").gridster({
-            widget_base_dimensions: [settings.widthCell, settings.heightCell],
-        }).data('gridster');
-
-    window.newPage.gridster = gridster;
-
-    window.newPage.addWidget = function (widget, settings, callback) {
-        this.gridster.add_widget(
-            widget.render(),
-            settings.width,
-            settings.height,
-            settings.positionX,
-            settings.positionY
-        );
-
-        widget.gridster = gridster;
-
-        if (callback) {
-            callback();
-        }
-
-        this.enabledWidgets[widget.widgetName] = widget;
-    };
+    window.newPage = new Page();
 }) (
     window,
     window.Views,
