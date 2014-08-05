@@ -1,6 +1,5 @@
-(function(window, newPage, globalSettings, widgetSettings) {
-    var Widget = window.newPage.Widget,
-        CalendarView = Widget.extend({
+(function(window, newPage, Views, Models, globalSettings, widgetSettings) {
+    var CalendarView = Views.Widget.extend({
             widgetName: 'calendar',
             template: $('#widget-calendar-template').html(),
 
@@ -41,7 +40,12 @@
         }
     );
 
-})(window, window.newPage, window.newPage.settings, 
+})(
+    window,
+    window.newPage,
+    window.Views,
+    window.Models,
+    window.newPage.settings,
     window.newPage.settings.widgets.calendar || {
         width: 4,
         height: 3,

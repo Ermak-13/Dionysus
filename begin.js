@@ -1,9 +1,8 @@
-(function(window) {
-    // bootstrap
-    window.newPage = {
-        enabledWidgets: {},
+window.Views = window.Views || {};
+window.Models = window.Models || {};
 
-        Widget: Backbone.View.extend({
+(function(window, Views, Models) {
+    var Widget = Backbone.View.extend({
             tagName: 'li',
             className: function () {
                 // return 'widget widget.name'
@@ -20,7 +19,12 @@
             },
 
             closeContent: function () {}
-        }),
+        });
+
+    Views.Widget = Widget;
+
+    window.newPage = {
+        enabledWidgets: {},
 
         settings: {
             widthCell: 25,
@@ -53,4 +57,8 @@
 
         this.enabledWidgets[widget.widgetName] = widget;
     };
-})(window);
+}) (
+    window,
+    window.Views,
+    window.Models
+);

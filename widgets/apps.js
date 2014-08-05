@@ -1,6 +1,5 @@
-(function(window, newPage, globalSettings, widgetSettings) {
-    var Widget = window.newPage.Widget,
-        AppsView = Widget.extend({
+(function(window, newPage, Views, globalSettings, widgetSettings) {
+    var AppsView = Views.Widget.extend({
             widgetName: 'apps',
             template: $('#widget-apps-template').html(),
 
@@ -89,7 +88,11 @@
         }
     );
 
-})(window, window.newPage, window.newPage.settings, 
+})(
+    window,
+    window.newPage,
+    window.Views,
+    window.newPage.settings, 
     window.newPage.settings.widgets.apps || {
         width: 3,
         height: 3,

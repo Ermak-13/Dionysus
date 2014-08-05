@@ -1,6 +1,5 @@
-(function(window, newPage, globalSettings, widgetSettings) {
-    var Widget = window.newPage.Widget,
-        ClockView = Widget.extend({
+(function(window, newPage, Views, Models, globalSettings, widgetSettings) {
+    var ClockView = Views.Widget.extend({
             widgetName: 'clock',
             template: $('#widget-clock-template').html(),
 
@@ -33,7 +32,12 @@
         }
     );
 
-})(window, window.newPage, window.newPage.settings, 
+})(
+    window,
+    window.newPage,
+    window.Views,
+    window.Models,
+    window.newPage.settings,
     window.newPage.settings.widgets.clock || {
         width: 6,
         height: 3,
