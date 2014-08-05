@@ -1,5 +1,79 @@
-(function(window, page, Views, globalSettings, widgetSettings) {
-    var AppsView = Views.Widget.extend({
+(function(window, page, Views, Models, globalSettings, widgetSettings) {
+    var AppModel = Models.BaseModel.extend({
+            default_icon_url: function () {
+                var icons = this.get('icons'),
+                    icon = _.last(icons);
+
+                if (icon) {
+                    return icon.url;
+                }
+                return 'themes/images/app-icon.png';
+            },
+
+            launched: function () {
+                var LAUNCHED_APPS = [
+                        'packaged_app',
+                        'hosted_app'
+                    ],
+                    type = this.get('type');
+                return _.contains(LAUNCHED_APPS, type);
+            },
+
+            toContext: function () {
+                return {
+                    id: this.get('id'),
+                    name: this.get('shortName'),
+                    icon_url: this.default_icon_url(),
+                    launchedApp: this.launched()
+                }
+            }
+        }),
+
+        AppsCollection = Backbone.Collection.extend({
+            model: AppModel,
+
+            comparator: function (app) {
+                var priorities = {
+                        'hosted_app': 1,
+                        'package_app': 2
+                    }
+
+                return priorities[app.get('type')] || 3
+            }
+        }),
+
+        AppView = Backbone.View.extend({
+            el: '.apps-content',
+            template: $('#widget-app-template').html(),
+
+            events: {
+                'click .launch-app': 'launch',
+            },
+
+            initialize: function (app) {
+                this.app = app;
+            },
+
+            render: function () {
+                var html = Mustache.render(
+                        this.template,
+                        this.getContext()
+                    );
+
+                return this.$el.append(html);
+            },
+
+            getContext: function () {
+                return this.app.toContext();
+            },
+
+            launch: function (e) {
+                var app_id = $(e.currentTarget).data('app-id');
+                chrome.management.launchApp(app_id);
+            }
+        }),
+
+        AppsView = Views.Widget.extend({
             widgetName: 'apps',
             template: $('#widget-apps-template').html(),
 
@@ -40,39 +114,14 @@
                     _this = this;
 
                 chrome.management.getAll(function (apps) {
-                    var appsHTML = '';
+                    var appsArray = _.map(apps, function (app) {
+                            return new AppModel(app);
+                        }),
+                        apps = new AppsCollection(appsArray);
 
-                    apps = _.sortBy(apps, function (app) {
-                        var priorities = {
-                            'hosted_app': 1,
-                            'package_app': 2
-                        };
-                        return priorities[app.type] || 3;
-                    });
-
-                    _.each(apps, function (app, index) {
-                        var icon = _.last(app.icons),
-                            icon_url = 'themes/images/app-icon.png',
-                            launchedApp = (app.type == 'packaged_app' || app.type == 'hosted_app');
-
-                        if (icon) {
-                            icon_url = icon.url;
-                        }
-
-                        appsHTML = appsHTML + Mustache.render(
-                            appTemplate,
-                            {
-                                id: app.id,
-                                name: app.shortName,
-                                icon_url: icon_url,
-                                launchedApp: launchedApp
-                            }
-                        );
-                    });
-
-                    _this.$el.find('.apps-content').append(appsHTML);
-                    _this.$el.find('.launch-app').click(function () {
-                        chrome.management.launchApp($(this).data('app-id'));
+                    _.each(apps.models, function (app, index) {
+                        var appView = new AppView(app);
+                        appView.render();
                     });
                 });
             }
@@ -92,6 +141,7 @@
     window,
     window.newPage,
     window.Views,
+    window.Models,
     window.newPage.settings, 
     window.newPage.settings.widgets.apps || {
         width: 3,

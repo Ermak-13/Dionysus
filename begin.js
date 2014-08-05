@@ -2,7 +2,9 @@ window.Views = window.Views || {};
 window.Models = window.Models || {};
 
 (function(window, Views, Models) {
-    var Widget = Backbone.View.extend({
+    var BaseModel = Backbone.Model.extend({}),
+
+        Widget = Backbone.View.extend({
             tagName: 'li',
             className: function () {
                 // return 'widget widget.name'
@@ -10,12 +12,12 @@ window.Models = window.Models || {};
             },
 
             render: function() {
-                var currentTime = Mustache.render(
+                var html = Mustache.render(
                         this.template,
                         this.getContext()
                     );
 
-                return this.$el.html(currentTime);
+                return this.$el.html(html);
             },
 
             closeContent: function () {},
@@ -69,6 +71,7 @@ window.Models = window.Models || {};
             }
         });
 
+    Models.BaseModel = BaseModel;
     Views.Widget = Widget;
     Views.Page = Page;
 
