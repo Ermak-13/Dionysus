@@ -1,10 +1,7 @@
 window.Views = window.Views || {};
-window.Models = window.Models || {};
 
-(function(window, Views, Models) {
-    var BaseModel = Backbone.Model.extend({}),
-
-        Widget = Backbone.View.extend({
+(function(window, Views) {
+    var Widget = Backbone.View.extend({
             tagName: 'li',
             className: function () {
                 // return 'widget widget.name'
@@ -71,13 +68,11 @@ window.Models = window.Models || {};
             }
         });
 
-    Models.BaseModel = BaseModel;
     Views.Widget = Widget;
     Views.Page = Page;
 
     window.newPage = new Page();
 }) (
     window,
-    window.Views,
-    window.Models
+    window.Views
 );

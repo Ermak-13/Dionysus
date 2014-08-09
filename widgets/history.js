@@ -1,4 +1,4 @@
-(function(window, page, Views, Models, globalSettings, widgetSettings) {
+(function(window, page, Views, globalSettings, widgetSettings) {
     var HistoryView = Views.Widget.extend({
             widgetName: 'history',
             template: $('#widget-history-template').html(),
@@ -52,7 +52,6 @@
     window,
     window.newPage,
     window.Views,
-    window.Models,
     window.newPage.settings, 
     window.newPage.settings.widgets.apps || {
         width: 13,

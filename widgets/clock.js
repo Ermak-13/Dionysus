@@ -1,4 +1,4 @@
-(function(window, page, Views, Models, globalSettings, widgetSettings) {
+(function(window, page, Views, globalSettings, widgetSettings) {
     var TimeModel = Backbone.Model.extend({
             initialize: function(time) {
                 this.time = time;
@@ -59,7 +59,6 @@
     window,
     window.newPage,
     window.Views,
-    window.Models,
     window.newPage.settings,
     window.newPage.settings.widgets.clock || {
         width: 6,
