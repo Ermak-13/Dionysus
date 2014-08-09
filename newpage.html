@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="desktop.css">
     <link rel="stylesheet" type="text/css" href="widgets/clock.css">
     <link rel="stylesheet" type="text/css" href="widgets/calendar.css">
-    <link rel="stylesheet" type="text/css" href="widgets/bender.css">
+    <link rel="stylesheet" type="text/css" href="widgets/carousel.css">
     <link rel="stylesheet" type="text/css" href="widgets/apps.css">
     <link rel="stylesheet" type="text/css" href="widgets/history.css">
 
@@ -48,11 +48,15 @@
         </div>
     </script>
 
-    <script id="widget-bender-template" type="text/template">
+    <script id="widget-carousel-template" type="text/template">
         <div class="center">
             <div class="jcarousel">
                 <ul>
-                    {{& images }}
+                    {{#images}}
+                        </li>
+                            <img src="{{url}}" class="photo" />
+                        </li>
+                    {{/images}}
                 </ul>
             </div>
         </div>
@@ -115,7 +119,7 @@
 
     <script type="text/javascript" src="widgets/clock.js"></script>
     <script type="text/javascript" src="widgets/calendar.js"></script>
-    <script type="text/javascript" src="widgets/bender.js"></script>
+    <script type="text/javascript" src="widgets/carousel.js"></script>
     <script type="text/javascript" src="widgets/apps.js"></script>
     <script type="text/javascript" src="widgets/history.js"></script>
 

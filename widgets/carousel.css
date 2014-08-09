@@ -1,18 +1,18 @@
-.widget.bender .center {
+.widget.carousel .center {
   width: 500px;
   margin: 15px auto;
 }
 
-.widget.bender .photo {
+.widget.carousel .photo {
   width: 500px;
 }
 
-.widget.bender .jcarousel {
+.widget.carousel .jcarousel {
   position: relative;
   overflow: hidden;
 }
 
-.widget.bender .jcarousel ul {
+.widget.carousel .jcarousel ul {
   width: 20000em;
   position: relative;
 
@@ -22,6 +22,6 @@
   padding: 0;
 }
 
-.widget.bender .jcarousel li {
+.widget.carousel .jcarousel li {
   float: left;
 }

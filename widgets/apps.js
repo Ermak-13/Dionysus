@@ -19,7 +19,7 @@
                 return _.contains(LAUNCHED_APPS, type);
             },
 
-            toContext: function () {
+            toJSON: function () {
                 return {
                     id: this.get('id'),
                     name: this.get('shortName'),
@@ -64,7 +64,7 @@
             },
 
             getContext: function () {
-                return this.app.toContext();
+                return this.app.toJSON();
             },
 
             launch: function (e) {
