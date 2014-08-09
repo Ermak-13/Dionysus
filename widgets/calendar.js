@@ -1,32 +1,42 @@
 (function(window, page, Views, Models, globalSettings, widgetSettings) {
-    var CalendarView = Views.Widget.extend({
+    var DateModel = Backbone.Model.extend({
+            initialize: function (date) {
+                this.date = date;
+            },
+
+            getMonth: function () {
+                var monthNames = {
+                    0: 'January',
+                    1: 'February',
+                    2: 'March',
+                    3: 'April',
+                    4: 'May',
+                    5: 'June',
+                    6: 'July',
+                    7: 'August',
+                    8: 'September',
+                    9: 'October',
+                    10: 'November',
+                    11: 'December'
+                };
+                return monthNames[this.date.getMonth().toString()];
+            },
+
+            toJSON: function () {
+                return {
+                    day: this.date.getDate(),
+                    month: this.getMonth()
+                }
+            }
+        }),
+
+        CalendarView = Views.Widget.extend({
             widgetName: 'calendar',
             template: $('#widget-calendar-template').html(),
 
             getContext: function() {
-                var getNiceMonthFormat = function(monthIndex) {
-                        var monthNames = {
-                            '0': 'January',
-                            '1': 'February',
-                            '2': 'March',
-                            '3': 'April',
-                            '4': 'May',
-                            '5': 'June',
-                            '6': 'July',
-                            '7': 'August',
-                            '8': 'September',
-                            '9': 'October',
-                            '10': 'November',
-                            '11': 'December'
-                        };
-                        return monthNames[monthIndex.toString()];
-                    },
-                    currentDateTime = new Date();
-
-                return {
-                    'day': currentDateTime.getDate(),
-                    'month': getNiceMonthFormat(currentDateTime.getMonth())
-                };
+                var date = new DateModel(new Date());
+                return date.toJSON();
             }
         });
     
