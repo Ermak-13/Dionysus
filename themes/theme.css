@@ -1,5 +1,6 @@
-body {
-  background: url('images/body-bg.jpg');
+html {
+  background: url('images/body-bg.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
 }
 
 .widget {
