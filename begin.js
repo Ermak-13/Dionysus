@@ -14,7 +14,6 @@ window.Views = window.Views || {};
     var Widget = Backbone.View.extend({
             tagName: 'li',
             className: function () {
-                // return 'widget widget.name'
                 return ['widget', this.widgetName].join(' ');
             },
 
@@ -67,8 +66,8 @@ window.Views = window.Views || {};
                             var $widget = $(e.target).closest('.widget'),
                                 widgetName = $widget.data('widget-name'),
 
-                                x = $widget.data('col'),
-                                y = $widget.data('row'),
+                                x = $widget.attr('data-col'),
+                                y = $widget.data('data-row'),
 
                                 position = JSON.stringify({
                                     x: x,
