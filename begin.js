@@ -37,7 +37,9 @@ window.Views = window.Views || {};
                     var gridster = this.page.gridster;
                     gridster.resize_widget(this.$el, width, height);
                 }
-            }
+            },
+
+            closeContent: function () {}
         }),
 
         Page = Backbone.View.extend({
