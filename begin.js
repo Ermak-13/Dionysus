@@ -3,11 +3,11 @@ window.Views = window.Views || {};
 (function(window, Views) {
     var Storage = function () {
         this.save = function (key, value) {
-            $.cookie(key, value);
+            localStorage.setItem(key, value);
         };
 
         this.load = function (key) {
-            return $.cookie(key);
+            return localStorage.getItem(key);
         };
     }
 
@@ -62,11 +62,11 @@ window.Views = window.Views || {};
                     ],
                     draggable: {
                         stop: function (e, ui) {
-                            var x = ui.$helper.data('col'),
-                                y = ui.$helper.data('row'),
-
-                                $widget = $(e.target).closest('.widget'),
+                            var $widget = $(e.target).closest('.widget'),
                                 widgetName = $widget.data('widget-name'),
+
+                                x = $widget.data('col'),
+                                y = $widget.data('row'),
 
                                 position = JSON.stringify({
                                     x: x,
