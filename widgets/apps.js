@@ -43,7 +43,8 @@
         }),
 
         AppView = Backbone.View.extend({
-            el: '.apps-content',
+            tagName: 'div',
+            className: 'application-container',
             template: $('#widget-app-template').html(),
 
             events: {
@@ -60,7 +61,9 @@
                         this.getContext()
                     );
 
-                return this.$el.append(html);
+                this.$el.html(html);
+
+                return this;
             },
 
             getContext: function () {
@@ -70,6 +73,27 @@
             launch: function (e) {
                 var app_id = $(e.currentTarget).data('app-id');
                 chrome.management.launchApp(app_id);
+            }
+        }),
+
+        AppsContentView = Backbone.View.extend({
+            el: '.apps-content',
+
+            initialize: function (apps) {
+                this.apps = apps;
+            },
+
+            render: function () {
+                var _this = this;
+
+                _.each(_this.apps.models, function (app, index) {
+                    var appView = new AppView(app),
+                        appEl = appView.render().$el;
+
+                    _this.$el.append(appEl);
+                });
+
+                return this;
             }
         }),
 
@@ -113,13 +137,13 @@
                     var appsArray = _.map(apps, function (app) {
                             return new AppModel(app);
                         }),
-                        apps = new AppsCollection(appsArray);
+                        apps = new AppsCollection(appsArray),
+                        appsContentView = new AppsContentView(apps);
 
-                    _.each(apps.models, function (app, index) {
-                        var appView = new AppView(app);
-                        appView.render();
-                    });
+                    appsContentView.render();
                 });
+
+                return this;
             }
         });
 
