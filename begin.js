@@ -1,6 +1,16 @@
 window.Views = window.Views || {};
 
 (function(window, Views) {
+    var Storage = function () {
+        this.save = function (key, value) {
+            $.cookie(key, value);
+        };
+
+        this.load = function (key) {
+            return $.cookie(key);
+        };
+    }
+
     var Widget = Backbone.View.extend({
             tagName: 'li',
             className: function () {
@@ -14,10 +24,13 @@ window.Views = window.Views || {};
                         this.getContext()
                     );
 
+                this.$el.data('widget-name', this.widgetName);
                 return this.$el.html(html);
             },
 
-            closeContent: function () {},
+            getContext: function () {
+                return {};
+            },
 
             resize: function (width, height) {
                 if (this.page) {
@@ -42,20 +55,46 @@ window.Views = window.Views || {};
                 var _this = this;
 
                 this.gridster = this.$el.gridster({
+                    avoid_overlapped_widgets: true,
                     widget_base_dimensions: [
                         _this.settings.widthCell,
                         _this.settings.heightCell
                     ],
+                    draggable: {
+                        stop: function (e, ui) {
+                            var x = ui.$helper.data('col'),
+                                y = ui.$helper.data('row'),
+
+                                $widget = $(e.target).closest('.widget'),
+                                widgetName = $widget.data('widget-name'),
+
+                                position = JSON.stringify({
+                                    x: x,
+                                    y: y
+                                });
+
+                            window.storage.save(widgetName, position);
+                        }
+                    }
                 }).data('gridster');
             },
 
             addWidget: function (widget, settings, callback) {
+                var widgetName = widget.widgetName,
+                    position = window.storage.load(widgetName);
+
+                if (position) {
+                    position = JSON.parse(position);
+                } else {
+                    position = {};
+                }
+
                 this.gridster.add_widget(
                     widget.render(),
                     settings.width,
                     settings.height,
-                    settings.positionX,
-                    settings.positionY
+                    position.x || settings.positionX,
+                    position.y || settings.positionY
                 );
 
                 widget.page = this;
@@ -71,6 +110,7 @@ window.Views = window.Views || {};
     Views.Widget = Widget;
     Views.Page = Page;
 
+    window.storage = new Storage();
     window.newPage = new Page();
 }) (
     window,

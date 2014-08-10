@@ -105,10 +105,6 @@
                 return false;
             },
 
-            getContext: function () {
-                return {};
-            },
-
             renderApps: function() {
                 var appTemplate = $('#widget-app-template').html(),
                     _this = this;
