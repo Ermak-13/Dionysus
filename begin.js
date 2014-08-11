@@ -67,7 +67,7 @@ window.Views = window.Views || {};
                                 widgetName = $widget.data('widget-name'),
 
                                 x = $widget.attr('data-col'),
-                                y = $widget.data('data-row'),
+                                y = $widget.attr('data-row'),
 
                                 position = JSON.stringify({
                                     x: x,
