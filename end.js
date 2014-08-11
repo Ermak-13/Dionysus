@@ -6,8 +6,4 @@
             widget.closeContent(e);
         });
     });
-
-    $gridsterContainer.find('li').on('click', function (e) {
-      return false;
-    });
 })(window);

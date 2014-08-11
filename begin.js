@@ -80,6 +80,22 @@ window.Views = window.Views || {};
             closeContent: function () {}
         }),
 
+        LinkWidget = Widget.extend({
+            events: {
+                'click .js-open-internal-page': 'openInternalPage'
+            },
+
+            openInternalPage: function (e) {
+                var _this = this;
+
+                chrome.tabs.create({
+                    url: _this.url
+                });
+
+                return false;
+            }
+        }),
+
         Page = Backbone.View.extend({
             el: '.gridster ul',
 
@@ -113,6 +129,7 @@ window.Views = window.Views || {};
                                     y: y
                                 });
 
+                                console.log(position)
                             window.storage.save(widgetName, position);
                         }
                     }
@@ -122,6 +139,8 @@ window.Views = window.Views || {};
             addWidget: function (widget, settings, callback) {
                 var widgetName = widget.widgetName,
                     position = window.storage.load(widgetName);
+                    console.log(widgetName)
+                    console.log(position)
 
                 if (position) {
                     position = JSON.parse(position);
@@ -151,6 +170,7 @@ window.Views = window.Views || {};
     Views.List = ListView;
 
     Views.Widget = Widget;
+    Views.LinkWidget = LinkWidget;
     Views.Page = Page;
 
     window.storage = new Storage();
