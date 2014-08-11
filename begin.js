@@ -129,7 +129,6 @@ window.Views = window.Views || {};
                                     y: y
                                 });
 
-                                console.log(position)
                             window.storage.save(widgetName, position);
                         }
                     }
@@ -139,8 +138,6 @@ window.Views = window.Views || {};
             addWidget: function (widget, settings, callback) {
                 var widgetName = widget.widgetName,
                     position = window.storage.load(widgetName);
-                    console.log(widgetName)
-                    console.log(position)
 
                 if (position) {
                     position = JSON.parse(position);
