@@ -13,50 +13,15 @@
             model: HistoryItemModel
         }),
 
-        HistoryItemView = Backbone.View.extend({
+        HistoryItemView = Views.Item.extend({
             tagName: 'tr',
             className: 'history-item',
-
-            template: $('#widget-history-item-template').html(),
-
-            initialize: function (historyItem) {
-                this.historyItem = historyItem;
-            },
-
-            render: function () {
-                var html = Mustache.render(
-                        this.template,
-                        this.getContext()
-                    );
-
-                this.$el.html(html);
-                return this;
-            },
-
-            getContext: function () {
-                return this.historyItem.toJSON();
-            }
+            template: $('#widget-history-item-template').html()
         }),
 
-        HistoryContentView = Backbone.View.extend({
+        HistoryContentView = Views.List.extend({
             el: '.history-table tbody',
-
-            initialize: function (history) {
-                this.history = history;
-            },
-
-            render: function () {
-                var _this = this;
-
-                _.each(_this.history.models, function (historyItem) {
-                    var historyItemView = new HistoryItemView(historyItem),
-                        historyItemEl = historyItemView.render().$el;
-
-                    _this.$el.append(historyItemEl);
-                });
-
-                return this;
-            }
+            ItemView: HistoryItemView
         }),
 
         HistoryView = Views.Widget.extend({

@@ -42,7 +42,7 @@
             }
         }),
 
-        AppView = Backbone.View.extend({
+        AppView = Views.Item.extend({
             tagName: 'div',
             className: 'application-container',
             template: $('#widget-app-template').html(),
@@ -51,50 +51,15 @@
                 'click .launch-app': 'launch',
             },
 
-            initialize: function (app) {
-                this.app = app;
-            },
-
-            render: function () {
-                var html = Mustache.render(
-                        this.template,
-                        this.getContext()
-                    );
-
-                this.$el.html(html);
-
-                return this;
-            },
-
-            getContext: function () {
-                return this.app.toJSON();
-            },
-
             launch: function (e) {
                 var app_id = $(e.currentTarget).data('app-id');
                 chrome.management.launchApp(app_id);
             }
         }),
 
-        AppsContentView = Backbone.View.extend({
+        AppsContentView = Views.List.extend({
             el: '.apps-content',
-
-            initialize: function (apps) {
-                this.apps = apps;
-            },
-
-            render: function () {
-                var _this = this;
-
-                _.each(_this.apps.models, function (app) {
-                    var appView = new AppView(app),
-                        appEl = appView.render().$el;
-
-                    _this.$el.append(appEl);
-                });
-
-                return this;
-            }
+            ItemView: AppView
         }),
 
         AppsView = Views.Widget.extend({

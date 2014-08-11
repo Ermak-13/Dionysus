@@ -2,16 +2,55 @@ window.Views = window.Views || {};
 
 (function(window, Views) {
     var Storage = function () {
-        this.save = function (key, value) {
-            localStorage.setItem(key, value);
-        };
+            this.save = function (key, value) {
+                localStorage.setItem(key, value);
+            };
 
-        this.load = function (key) {
-            return localStorage.getItem(key);
-        };
-    }
+            this.load = function (key) {
+                return localStorage.getItem(key);
+            };
+        },
 
-    var Widget = Backbone.View.extend({
+        ItemView = Backbone.View.extend({
+            initialize: function (item) {
+                this.item = item;
+            },
+
+            render: function () {
+                var html = Mustache.render(
+                        this.template,
+                        this.getContext()
+                    );
+
+                this.$el.html(html);
+                return this;
+            },
+
+            getContext: function () {
+                return this.item.toJSON();
+            }
+        }),
+
+        ListView = Backbone.View.extend({
+            initialize: function (items) {
+                this.items = items;
+            },
+
+            render: function () {
+                var _this = this;
+
+                _.each(_this.items.models, function (item) {
+                    var itemView = new _this.ItemView(item),
+                        itemEl = itemView.render().$el;
+
+                    _this.$el.append(itemEl);
+                });
+
+                return this;
+            }
+        }),
+
+        Widget = Backbone.View.extend({
             tagName: 'li',
             className: function () {
                 return ['widget', this.widgetName].join(' ');
@@ -107,6 +146,9 @@ window.Views = window.Views || {};
                 this.enabledWidgets[widget.widgetName] = widget;
             }
         });
+
+    Views.Item = ItemView;
+    Views.List = ListView;
 
     Views.Widget = Widget;
     Views.Page = Page;
