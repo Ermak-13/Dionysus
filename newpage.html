@@ -101,6 +101,17 @@
         </a>
     </script>
 
+    <script id="widget-weather-template" type="text/template">
+    </script>
+
+    <script id="widget-weather-day-template" type="text/template">
+        <div>{{ date }}</div>
+        <div>{{ temperature }}</div>
+        <div>{{ description }}</div>
+        <div>
+            <img src="{{ icon_url }}" />
+        </div>
+    </script>
 
     <script type="text/javascript" src="begin.js"></script>
 
@@ -111,6 +122,7 @@
     <script type="text/javascript" src="widgets/history.js"></script>
     <script type="text/javascript" src="widgets/bookmarks.js"></script>
     <script type="text/javascript" src="widgets/downloads.js"></script>
+    <script type="text/javascript" src="widgets/weather.js"></script>
 
     <script type="text/javascript" src="end.js"></script>
 

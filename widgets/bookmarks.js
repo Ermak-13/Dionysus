@@ -14,7 +14,7 @@
     window,
     window.newPage,
     window.Views,
-    window.newPage.settings.widgets.apps || {
+    window.newPage.settings.widgets.bookmarks || {
         width: 3,
         height: 3
     }
