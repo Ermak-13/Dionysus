@@ -35,7 +35,7 @@
             }
         }),
 
-        ClockView = Views.Widget.extend({
+        ClockWidget = Views.Widget.extend({
             widgetName: 'clock',
             template: $('#widget-clock-template').html(),
 
@@ -45,9 +45,8 @@
             }
         });
 
-    var clock = new ClockView();
     page.addWidget(
-        clock,
+        ClockWidget,
         widgetSettings,
 
         function () {
@@ -61,8 +60,6 @@
     window.Views,
     window.newPage.settings.widgets.clock || {
         width: 6,
-        height: 3,
-        positionX: 0,
-        positionY: 0
+        height: 3
     }
 );

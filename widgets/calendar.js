@@ -30,7 +30,7 @@
             }
         }),
 
-        CalendarView = Views.Widget.extend({
+        CalendarWidget = Views.Widget.extend({
             widgetName: 'calendar',
             template: $('#widget-calendar-template').html(),
 
@@ -40,9 +40,8 @@
             }
         });
     
-    var calendar = new CalendarView();
     page.addWidget(
-        calendar,
+        CalendarWidget,
         widgetSettings,
 
         function () {
@@ -56,8 +55,6 @@
     window.Views,
     window.newPage.settings.widgets.calendar || {
         width: 4,
-        height: 3,
-        positionX: 0,
-        positionY: 0
+        height: 3
     }
 );

@@ -135,8 +135,9 @@ window.Views = window.Views || {};
                 }).data('gridster');
             },
 
-            addWidget: function (widget, settings, callback) {
-                var widgetName = widget.widgetName,
+            addWidget: function (Widget, settings, callback) {
+                var widget = new Widget(),
+                    widgetName = widget.widgetName,
                     position = window.storage.load(widgetName);
 
                 if (position) {
@@ -149,8 +150,8 @@ window.Views = window.Views || {};
                     widget.render(),
                     settings.width,
                     settings.height,
-                    position.x || settings.positionX,
-                    position.y || settings.positionY
+                    position.x || 1,
+                    position.y || 1
                 );
 
                 widget.page = this;

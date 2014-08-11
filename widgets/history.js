@@ -1,14 +1,13 @@
 (function(window, page, Views, widgetSettings) {
-    var HistoryView = Views.LinkWidget.extend({
+    var HistoryWidget = Views.LinkWidget.extend({
             widgetName: 'history',
             url: 'chrome://history',
 
             template: $('#widget-history-template').html()
         });
 
-    var history = new HistoryView();
     page.addWidget(
-        history,
+        HistoryWidget,
         widgetSettings
     );
 })(
@@ -17,8 +16,6 @@
     window.Views,
     window.newPage.settings.widgets.apps || {
         width: 3,
-        height: 3,
-        positionX: 14,
-        positionY: 4
+        height: 3
     }
 );

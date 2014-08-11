@@ -18,7 +18,7 @@
             }
         }),
 
-        CarouselView = Views.Widget.extend({
+        CarouselWidget = Views.Widget.extend({
             widgetName: 'carousel',
             template: $('#widget-carousel-template').html(),
 
@@ -45,9 +45,8 @@
             }
         });
 
-    var carousel = new CarouselView();
     page.addWidget(
-        carousel,
+        CarouselWidget,
         widgetSettings,
 
         function () {
@@ -68,8 +67,6 @@
     window.Views,
     window.newPage.settings.widgets.carousel || {
         width: 13,
-        height: 8,
-        positionX: 1,
-        positionY: 4
+        height: 8
     }
 );

@@ -62,7 +62,7 @@
             ItemView: AppView
         }),
 
-        AppsView = Views.Widget.extend({
+        AppsWidget = Views.Widget.extend({
             widgetName: 'apps',
             template: $('#widget-apps-template').html(),
 
@@ -112,9 +112,8 @@
             }
         });
 
-    var apps = new AppsView();
     page.addWidget(
-        apps,
+        AppsWidget,
         widgetSettings,
 
         function () {
@@ -128,8 +127,6 @@
     window.Views,
     window.newPage.settings.widgets.apps || {
         width: 3,
-        height: 3,
-        positionX: 14,
-        positionY: 1
+        height: 3
     }
 );
