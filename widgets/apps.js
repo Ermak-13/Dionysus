@@ -1,4 +1,4 @@
-(function(window, page, Views, globalSettings, widgetSettings) {
+(function(window, page, Views, widgetSettings) {
     var AppModel = Backbone.Model.extend({
             default_icon_url: function () {
                 var icons = this.get('icons'),
@@ -126,7 +126,6 @@
     window,
     window.newPage,
     window.Views,
-    window.newPage.settings, 
     window.newPage.settings.widgets.apps || {
         width: 3,
         height: 3,

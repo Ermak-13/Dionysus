@@ -1,6 +1,6 @@
 // image size 800x480
 
-(function(window, page, Views, globalSettings, widgetSettings) {
+(function(window, page, Views, widgetSettings) {
     var ImageModel = Backbone.Model.extend({
             toJSON: function () {
                 return {
@@ -66,7 +66,6 @@
     window,
     window.newPage,
     window.Views,
-    window.newPage.settings, 
     window.newPage.settings.widgets.carousel || {
         width: 13,
         height: 8,

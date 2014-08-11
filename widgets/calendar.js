@@ -1,4 +1,4 @@
-(function(window, page, Views, globalSettings, widgetSettings) {
+(function(window, page, Views, widgetSettings) {
     var DateModel = Backbone.Model.extend({
             initialize: function (date) {
                 this.date = date;
@@ -54,7 +54,6 @@
     window,
     window.newPage,
     window.Views,
-    window.newPage.settings,
     window.newPage.settings.widgets.calendar || {
         width: 4,
         height: 3,

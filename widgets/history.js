@@ -1,4 +1,4 @@
-(function(window, page, Views, globalSettings, widgetSettings) {
+(function(window, page, Views, widgetSettings) {
     var HistoryView = Views.LinkWidget.extend({
             widgetName: 'history',
             url: 'chrome://history',
@@ -15,7 +15,6 @@
     window,
     window.newPage,
     window.Views,
-    window.newPage.settings, 
     window.newPage.settings.widgets.apps || {
         width: 3,
         height: 3,
