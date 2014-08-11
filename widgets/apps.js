@@ -86,7 +86,7 @@
             render: function () {
                 var _this = this;
 
-                _.each(_this.apps.models, function (app, index) {
+                _.each(_this.apps.models, function (app) {
                     var appView = new AppView(app),
                         appEl = appView.render().$el;
 
