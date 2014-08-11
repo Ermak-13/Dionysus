@@ -116,7 +116,7 @@
         AppsWidget,
         widgetSettings,
 
-        function () {
+        function (apps) {
             apps.renderApps();
         }
     );

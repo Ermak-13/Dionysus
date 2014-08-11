@@ -49,7 +49,7 @@
         CarouselWidget,
         widgetSettings,
 
-        function () {
+        function (carousel) {
             var jcarousel = carousel.$el.find('.jcarousel')
             jcarousel.jcarousel({
                 wrap: 'circular'

@@ -157,7 +157,7 @@ window.Views = window.Views || {};
                 widget.page = this;
 
                 if (callback) {
-                    callback();
+                    callback(widget);
                 }
 
                 this.enabledWidgets[widget.widgetName] = widget;

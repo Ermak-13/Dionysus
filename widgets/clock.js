@@ -49,7 +49,7 @@
         ClockWidget,
         widgetSettings,
 
-        function () {
+        function (clock) {
             window.setInterval(function() { clock.render(); });
         }
     );

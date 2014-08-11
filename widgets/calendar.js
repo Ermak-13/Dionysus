@@ -44,7 +44,7 @@
         CalendarWidget,
         widgetSettings,
 
-        function () {
+        function (calendar) {
             window.setInterval(function () { calendar.render(); }, 60 * 1000);
         }
     );
