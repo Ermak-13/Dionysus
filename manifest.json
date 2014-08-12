@@ -10,6 +10,6 @@
   "permissions": [
     "management",
     "history",
-    "http://api.worldweatheronline.com/*"
+    "http://api.openweathermap.org/*"
   ]
 }

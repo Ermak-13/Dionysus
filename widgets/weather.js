@@ -1,23 +1,46 @@
 (function(window, page, Views, widgetSettings) {
     var WeatherModel = Backbone.Model.extend({
+            initialize: function () {
+                this.main = this.get('main');
+                this.clous = this.get('clouds');
+                this.weather = this.get('weather')[0];
+                this.wind = this.get('wind');
+            },
+
+            iconUrl: function () {
+                var iconName = this.weather.icon,
+                    iconUrl = _.sprintf('http://openweathermap.org/img/w/%s.png', iconName);
+
+                return iconUrl;
+            },
+
+            temperature: function () {
+                var tempC = this.main.temp - 273.15;
+
+                if (tempC >= 0) {
+                    tempC = _.sprintf('+%s', tempC);
+                } else {
+                    tempC = _.sprintf('-%s', tempC);
+                }
+
+                return tempC;
+            },
+
             toJSON: function () {
                 return {
-                    date: this.get('date'),
-                    temperature: this.get('tempMinC') + '-' + this.get('tempMaxC'),
-                    description: this.get('weatherDesc')[0].value,
-                    icon_url: this.get('weatherIconUrl')[0].value
+                    title: this.weather.main,
+                    description: this.weather.description,
+                    temperature: this.temperature(),
+                    icon_url: this.iconUrl(),
+                    wind: this.wind.speed
                 }
             }
         }),
 
-        WeatherCollection = Backbone.Collection.extend({
-            model: WeatherModel
-        }),
-
-        WeatherDayView = Views.Item.extend({
+        DayWeatherView = Views.Item.extend({
             tagName: 'div',
-            className: 'weather-day',
-            template: $('#widget-weather-day-template').html(),
+            className: 'weather-container',
+            template: $('#widget-weather-day-template').html()
         }),
 
         WeatherWidget = Views.Widget.extend({
@@ -26,21 +49,19 @@
 
             renderWeather: function () {
                 var xhr = new XMLHttpRequest(),
-                    url = 'http://api.worldweatheronline.com/free/v1/weather.ashx?q=Minsk&format=json&num_of_days=5&key=41d9bcdb58c4d977e6bd8a28da2caf9d47a69c8a',
+                    url = 'http://api.openweathermap.org/data/2.5/weather?q=Minsk,by',
                     _this = this;
 
                 xhr.open('GET', url, true);
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState == 4) {
-                        var apiResponse = JSON.parse(xhr.responseText).data,
-                            weatherArray = _.map(apiResponse.weather, function (weatherDay) {
-                                return new WeatherModel(weatherDay)
-                            }),
-                            weather = new WeatherCollection(weatherArray);
+                        var apiResponse = JSON.parse(xhr.responseText),
+                            todayWeather = new WeatherModel(apiResponse),
+                            todayWeatherView = new DayWeatherView(todayWeather);
 
-                        console.log(weather)
-                        var currentDayWeatherView = new WeatherDayView(weather.models[0]);
-                        _this.$el.append(currentDayWeatherView.render().$el);
+                        _this.$el.html(
+                            todayWeatherView.render().$el
+                        );
                     }
                 }
                 xhr.send();
@@ -63,7 +84,7 @@
     window.newPage,
     window.Views,
     window.newPage.settings.widgets.weather || {
-        width: 10,
+        width: 4,
         height: 3
     }
 );

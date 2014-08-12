@@ -67,3 +67,31 @@ html {
 .apps.widget .app-icon {
   width: 80px;
 }
+
+
+.weather.widget .weather-container {
+  margin: 10px;
+}
+
+.weather.widget .weather-icon {
+  float: right;
+}
+
+.weather.widget .weather-title {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.weather.widget .weather-description {
+  font-style:italic;
+}
+
+.weather.widget .weather-temperature {
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+  color: #c3b23d;
+  text-align: center;
+}

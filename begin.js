@@ -1,6 +1,14 @@
 window.Views = window.Views || {};
 
 (function(window, Views) {
+    _.mixin(
+        _.str.exports()
+    );
+
+    _.str.include(
+        'Underscore.string', 'string'
+    );
+
     var Storage = function () {
             this.save = function (key, value) {
                 localStorage.setItem(key, value);

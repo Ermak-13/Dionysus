@@ -105,11 +105,25 @@
     </script>
 
     <script id="widget-weather-day-template" type="text/template">
-        <div>{{ date }}</div>
-        <div>{{ temperature }}</div>
-        <div>{{ description }}</div>
-        <div>
+        <div class="weather-icon">
             <img src="{{ icon_url }}" />
+        </div>
+
+        <div class="weather-title">
+            {{ title }}
+        </div>
+
+        <div class="weather-description">
+            {{ description }}
+        </div>
+
+        <div class="weather-temperature">
+            {{ temperature }}
+        </div>
+
+        <div class="weather-wind">
+            <span class="weather-wind-label">wind:</span>
+            {{ wind }} m/s
         </div>
     </script>
 
