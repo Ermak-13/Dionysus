@@ -16,6 +16,7 @@
 
             temperature: function () {
                 var tempC = this.main.temp - 273.15;
+                tempC = Math.floor(tempC);
 
                 if (tempC >= 0) {
                     tempC = _.sprintf('+%s', tempC);
