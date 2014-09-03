@@ -24,10 +24,10 @@
 
             getContext: function () {
                 var imagesUrls = [
-                        'widgets/images/bender/001.jpg',
-                        'widgets/images/bender/002.jpg',
-                        'widgets/images/bender/003.jpg',
-                        'widgets/images/bender/004.jpg',
+                        'assets/widgets/carousel/images/bender/001.jpg',
+                        'assets/widgets/carousel/images/bender/002.jpg',
+                        'assets/widgets/carousel/images/bender/003.jpg',
+                        'assets/widgets/carousel/images/bender/004.jpg',
                     ];
 
                 var imagesArray = _.map(imagesUrls, function (imageUrl) {

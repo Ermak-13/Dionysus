@@ -7,7 +7,7 @@
                 if (icon) {
                     return icon.url;
                 }
-                return 'themes/images/app-icon.png';
+                return 'assets/images/app-icon.png';
             },
 
             launched: function () {

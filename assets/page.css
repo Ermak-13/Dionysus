@@ -1,10 +1,51 @@
+.gridster li.widget,
+.gridster li.preview-holder {
+  list-style: none;
+}
+
+.widget .table {
+  border-collapse: collapse;
+}
+
+.widget .scrollbar {
+  overflow-y: auto;
+  height: 130px;
+}
+
+.widget .icon img {
+  display: block;
+  margin: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.widget .launch-app {
+  cursor: pointer;
+}
+
+
+/* SCROLLBAR for webkit */
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+
+/* THEME */
 html {
-  background: url('images/body-bg.jpg') no-repeat center center fixed; 
+  background: url('assets/images/body-bg.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
 }
 
 .widget {
-  background: url('images/widget-bg.png');
+  background: url('assets/images/widget-bg.png');
   background-position: repeat;
 
   border-color: #26572d;
