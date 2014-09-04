@@ -133,6 +133,7 @@ html {
 
 .weather.widget .weather-temperature {
   float: right;
+  clear: both;
   font-size: 32px;
   font-weight: bold;
   color: #c3b23d;
