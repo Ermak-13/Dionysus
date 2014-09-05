@@ -1,4 +1,4 @@
-(function(window, page, Views, widgetSettings) {
+(function (window, page, Views, widgetSettings) {
     var WeatherModel = Backbone.Model.extend({
             initialize: function () {
                 this.main = this.get('main');
@@ -34,7 +34,7 @@
                     temperature: this.temperature(),
                     icon_url: this.iconUrl(),
                     wind: this.wind.speed
-                }
+                };
             }
         }),
 
@@ -64,7 +64,7 @@
                             todayWeatherView.render().$el
                         );
                     }
-                }
+                };
                 xhr.send();
 
                 return this;
@@ -80,7 +80,7 @@
         }
     );
 
-})(
+}) (
     window,
     window.newPage,
     window.Views,

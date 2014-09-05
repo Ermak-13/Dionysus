@@ -10,7 +10,7 @@
                     minutes: this.getMinutes(),
                     seconds: this.getSeconds(),
                     milliseconds: this.getMilliseconds()
-                }
+                };
             },
 
             getHours: function () {
@@ -30,8 +30,8 @@
             },
 
             getNiceFormat: function (number, limit) {
-                var limit = limit || 10;
-                return (number < limit ? "0" : "") + number;
+                var _limit = limit || 10;
+                return (number < _limit ? "0" : "") + number;
             }
         }),
 
@@ -54,7 +54,7 @@
         }
     );
 
-})(
+}) (
     window,
     window.newPage,
     window.Views,

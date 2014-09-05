@@ -1,4 +1,4 @@
-(function(window, page, Views, widgetSettings) {
+(function (window, page, Views, widgetSettings) {
     var BookmarksWidget = Views.LinkWidget.extend({
             widgetName: 'bookmarks',
             url: 'chrome://bookmarks',
@@ -10,7 +10,7 @@
         BookmarksWidget,
         widgetSettings
     );
-})(
+}) (
     window,
     window.newPage,
     window.Views,

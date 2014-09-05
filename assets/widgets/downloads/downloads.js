@@ -1,4 +1,4 @@
-(function(window, page, Views, widgetSettings) {
+(function (window, page, Views, widgetSettings) {
     var DownloadsWidget = Views.LinkWidget.extend({
             widgetName: 'downloads',
             url: 'chrome://downloads',
@@ -10,7 +10,7 @@
         DownloadsWidget,
         widgetSettings
     );
-})(
+}) (
     window,
     window.newPage,
     window.Views,

@@ -1,4 +1,4 @@
-(function(window, page, Views, widgetSettings) {
+(function (window, page, Views, widgetSettings) {
     var DateModel = Backbone.Model.extend({
             initialize: function (date) {
                 this.date = date;
@@ -26,7 +26,7 @@
                 return {
                     day: this.date.getDate(),
                     month: this.getMonth()
-                }
+                };
             }
         }),
 
@@ -49,7 +49,7 @@
         }
     );
 
-})(
+}) (
     window,
     window.newPage,
     window.Views,

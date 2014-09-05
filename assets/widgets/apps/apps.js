@@ -1,4 +1,4 @@
-(function(window, page, Views, widgetSettings) {
+(function (window, page, Views, widgetSettings) {
     var AppModel = Backbone.Model.extend({
             default_icon_url: function () {
                 var icons = this.get('icons'),
@@ -25,7 +25,7 @@
                     name: this.get('shortName'),
                     icon_url: this.default_icon_url(),
                     launchedApp: this.launched()
-                }
+                };
             }
         }),
 
@@ -36,9 +36,9 @@
                 var priorities = {
                         'hosted_app': 1,
                         'package_app': 2
-                    }
+                    };
 
-                return priorities[app.get('type')] || 3
+                return priorities[app.get('type')] || 3;
             }
         }),
 
@@ -102,8 +102,8 @@
                     var appsArray = _.map(apps, function (app) {
                             return new AppModel(app);
                         }),
-                        apps = new AppsCollection(appsArray),
-                        appsContentView = new AppsContentView(apps);
+                        _apps = new AppsCollection(appsArray),
+                        appsContentView = new AppsContentView(_apps);
 
                     appsContentView.render();
                 });
@@ -121,7 +121,7 @@
         }
     );
 
-})(
+}) (
     window,
     window.newPage,
     window.Views,

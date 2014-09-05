@@ -1,11 +1,11 @@
 // image size 800x480
 
-(function(window, page, Views, widgetSettings) {
+(function (window, page, Views, widgetSettings) {
     var ImageModel = Backbone.Model.extend({
             toJSON: function () {
                 return {
                     url: this.get('url')
-                }
+                };
             }
         }),
 
@@ -50,7 +50,7 @@
         widgetSettings,
 
         function (carousel) {
-            var jcarousel = carousel.$el.find('.jcarousel')
+            var jcarousel = carousel.$el.find('.jcarousel');
             jcarousel.jcarousel({
                 wrap: 'circular'
             });
@@ -61,7 +61,7 @@
         }
     );
 
-})(
+}) (
     window,
     window.newPage,
     window.Views,
