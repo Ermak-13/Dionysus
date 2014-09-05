@@ -15,7 +15,7 @@
             },
 
             temperature: function () {
-                var tempC = this.main.temp - 273.15;
+                var tempC = this.main.temp_min - 273.15;
                 tempC = Math.floor(tempC);
 
                 if (tempC >= 0) {
