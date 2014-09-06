@@ -1,0 +1,20 @@
+.widget.configurator .container {
+    margin: 10px 20px;
+    overflow: hidden;
+}
+
+.button {
+    padding: 5px 10px;
+    font-size: 18px;
+    color: #666;
+    border: solid 1px #666;
+    border-radius: 5px;
+}
+
+.form textarea {
+    width: 100%;
+}
+
+#stylesheets-configuration-form textarea {
+    height: 200px;
+}
