@@ -126,18 +126,14 @@ window.Views = window.Views || {};
                     ],
                     draggable: {
                         stop: function (e, ui) {
-                            var $widget = $(e.target).closest('.widget'),
-                                widgetName = $widget.data('widget-name'),
-
-                                x = $widget.attr('data-col'),
-                                y = $widget.attr('data-row'),
-
-                                position = JSON.stringify({
-                                    x: x,
-                                    y: y
-                                });
-
-                            window.storage.save(widgetName, position);
+                            _.each(_this.enabledWidgets, function (widget, widgetName) {
+                                var gridsterPosition = _this.gridster.serialize(widget.$el)[0],
+                                    position = JSON.stringify({
+                                        x: gridsterPosition.col,
+                                        y: gridsterPosition.row
+                                    });
+                                window.storage.save(widgetName, position);
+                            });
                         }
                     }
                 }).data('gridster');
