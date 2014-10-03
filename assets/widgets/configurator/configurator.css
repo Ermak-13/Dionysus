@@ -3,18 +3,35 @@
     overflow: hidden;
 }
 
-.button {
-    padding: 5px 10px;
-    font-size: 18px;
+a.button {
+    background: #FFF;
     color: #666;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
     border: solid 1px #666;
     border-radius: 5px;
+    padding: 5px 10px;
 }
 
-.form textarea {
-    width: 100%;
+.configurator-widget-title {
+    text-transform: capitalize;
 }
 
-#stylesheets-configuration-form textarea {
-    height: 200px;
+.configurator-widget-link {
+    float: right;
 }
+
+.configurator-link {
+    width: 80px;
+    display: block;
+    float: left;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px;
+}
+
+.configurator-link img {
+    width: 80px;
+}
+

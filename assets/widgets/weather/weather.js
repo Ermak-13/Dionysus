@@ -20,8 +20,6 @@
 
                 if (tempC >= 0) {
                     tempC = _.sprintf('+%s', tempC);
-                } else {
-                    tempC = _.sprintf('-%s', tempC);
                 }
 
                 return tempC;

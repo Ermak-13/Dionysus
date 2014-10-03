@@ -1,6 +1,7 @@
 window.Views = window.Views || {};
+window.configurators = window.configurators || [];
 
-(function(window, Views) {
+(function (window, Backbone, Views) {
     _.mixin(
         _.str.exports()
     );
@@ -165,6 +166,7 @@ window.Views = window.Views || {};
                 }
 
                 this.enabledWidgets[widget.widgetName] = widget;
+                return widget;
             }
         });
 
@@ -179,5 +181,6 @@ window.Views = window.Views || {};
     window.newPage = new Page();
 }) (
     window,
+    Backbone,
     window.Views
 );

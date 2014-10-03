@@ -9,7 +9,20 @@ module.exports = function(grunt) {
 			'assets/libs/jquery.jcarousel.min.js',
 
 			'assets/widget.js',
-			'assets/widgets/**/*.js',
+            'assets/configurator.js',
+
+            'assets/widgets/apps/*.js',
+            'assets/widgets/bookmarks/*.js',
+            'assets/widgets/calendar/*.js',
+            'assets/widgets/carousel/*.js',
+            'assets/widgets/clock/*.js',
+            'assets/widgets/downloads/*.js',
+            'assets/widgets/history/*.js',
+            'assets/widgets/weather/*.js',
+
+            'assets/widgets/configurator/base/**/*.js',
+            'assets/widgets/configurator/*.js',
+
 			'assets/after_rendering.js'
 		],
 

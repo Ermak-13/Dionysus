@@ -1,31 +1,65 @@
-(function (window, page, Views, widgetSettings) {
+(function (window, page, Views, configurators, widgetSettings) {
     var ConfiguratorWidget = Views.Widget.extend({
         widgetName: 'configurator',
         template: $('#widget-configurator-template').html(),
 
         events: {
-            'submit #stylesheets-configuration-form': 'configureStyles'
+            'click .configurator-widget-link': 'render'
         },
 
-        getContext: function () {
-            return {};
+        initialize: function () {
+            this.configurators = configurators;
         },
 
-        configureStyles: function () {
-            var styles = this.$el.find('.styles-input').val();
-            $('body').append('<style>' + styles + '</style>');
-            window.storage.save('styles', styles);
-            return false;
+        render: function () {
+            var html = Mustache.render(
+                    this.template,
+                    this.getContext()
+                );
+
+            this.$el.data('widget-name', this.widgetName);
+            this.$el.html(html);
+
+            this.$content = this.$el.find('.configurators-content');
+            this.$configuratorWidgetLink = this.$el.find('.configurator-widget-link');
+            this.$configuratorWidgetTitle = this.$el.find('.configurator-widget-title');
+
+            this.renderConfiguratorLinks();
+            return this.$el;
+        },
+
+        renderConfiguratorLinks: function () {
+            var _this = this,
+                configuratorLinks = [];
+
+            _.each(this.configurators, function (configurator) {
+                var $link = configurator.link.render().$el;
+                _this.$content.append($link);
+
+                $link.on('click', function () {
+                    _this.$content.html(
+                        configurator.view.render().$el
+                    );
+                    _this.$configuratorWidgetLink.show();
+                    _this.$configuratorWidgetTitle.text(configurator.name);
+                });
+            });
+
+            return this;
         }
     });
 
-    page.addWidget(ConfiguratorWidget, widgetSettings);
+    var configuratorWidget = page.addWidget(
+        ConfiguratorWidget,
+        widgetSettings
+    );
 }) (
     window,
     window.newPage,
     window.Views,
+    window.configurators,
     window.newPage.settings.widgets.configurator || {
-        width: 9,
-        height: 9
+        width: 12,
+        height: 12
     }
 );
