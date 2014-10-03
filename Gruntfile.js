@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
   var installedJS = [
-		  'assets/libs/jquery-2.0.3.min.js',
-			'assets/libs/underscore-min.js',
+            'assets/libs/jquery-2.0.3.min.js',
+            'assets/libs/underscore-min.js',
 			'assets/libs/underscore.string.min.js',
 			'assets/libs/backbone-min.js',
 			'assets/libs/jquery.gridster.min.js',
@@ -54,7 +54,10 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: files,
-        tasks: [],
+        tasks: [
+            'concat',
+            'concat_css'
+        ],
         options: {
           spawn: false,
         },
