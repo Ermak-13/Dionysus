@@ -1,9 +1,22 @@
 (function (window, Backbone, Views) {
     var ConfiguratorView = Backbone.View.extend({
+            className: function () {
+                return ['configurator', this.configuratorName].join(' ');
+            },
+
             template: 'configurator-view',
 
+            initialize: function (options) {
+                this.storageKey = _.sprintf('%s-configurator', this.configuratorName);
+            },
+
             render: function () {
-                this.$el.html(this.template);
+                var html = Mustache.render(
+                    this.template,
+                    this.getContext()
+                );
+
+                this.$el.html(html);
                 return this;
             }
         }),
@@ -45,15 +58,19 @@
         }),
 
         Configurator = function (options) {
-            var options = options || {}, 
-                LinkClass = options.configuratorLinkClass || ConfiguratorLink,
+            options = options || {};
+
+            var LinkClass = options.configuratorLinkClass || ConfiguratorLink,
                 ViewClass = options.configuratorViewClass || ConfiguratorView;
 
             this.name = options.configuratorName;
             this.link = new LinkClass(options);
-            this.$link = this.link.render().$el;
 
             this.view = new ViewClass(options);
+            var _this = this;
+            this.run = function () {
+                _this.view.run();
+            };
         };
 
     Views.ConfiguratorView = ConfiguratorView;

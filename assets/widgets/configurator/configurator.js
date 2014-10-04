@@ -9,6 +9,10 @@
 
         initialize: function () {
             this.configurators = configurators;
+
+            _.each(this.configurators, function (configurator) {
+                configurator.run();
+            });
         },
 
         render: function () {

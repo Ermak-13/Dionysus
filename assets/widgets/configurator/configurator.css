@@ -9,6 +9,7 @@ a.button {
     font-size: 18px;
     font-weight: bold;
     text-decoration: none;
+    display: inline-block;
     border: solid 1px #666;
     border-radius: 5px;
     padding: 5px 10px;
