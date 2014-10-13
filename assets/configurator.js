@@ -18,6 +18,10 @@
 
                 this.$el.html(html);
                 return this;
+            },
+
+            getContext: function () {
+                return {};
             }
         }),
 
