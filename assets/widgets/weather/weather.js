@@ -43,7 +43,7 @@
         }),
 
         WeatherWidget = Views.Widget.extend({
-            widgetName: 'weather',
+            widgetName: widgetSettings.name,
             template: $('#widget-weather-template').html(),
 
             renderWeather: function () {

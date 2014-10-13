@@ -31,7 +31,7 @@
         }),
 
         CalendarWidget = Views.Widget.extend({
-            widgetName: 'calendar',
+            widgetName: widgetSettings.name,
             template: $('#widget-calendar-template').html(),
 
             getContext: function() {

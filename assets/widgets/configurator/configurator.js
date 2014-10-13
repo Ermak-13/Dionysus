@@ -1,6 +1,6 @@
 (function (window, page, Views, configurators, widgetSettings) {
     var ConfiguratorWidget = Views.Widget.extend({
-        widgetName: 'configurator',
+        widgetName: widgetSettings.name,
         template: $('#widget-configurator-template').html(),
 
         events: {

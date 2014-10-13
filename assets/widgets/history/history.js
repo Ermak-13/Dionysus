@@ -1,6 +1,6 @@
 (function (window, page, Views, widgetSettings) {
     var HistoryWidget = Views.LinkWidget.extend({
-            widgetName: 'history',
+            widgetName: widgetSettings.name,
             url: 'chrome://history',
 
             template: $('#widget-history-template').html()

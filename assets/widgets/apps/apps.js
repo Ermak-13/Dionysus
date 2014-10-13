@@ -63,7 +63,7 @@
         }),
 
         AppsWidget = Views.Widget.extend({
-            widgetName: 'apps',
+            widgetName: widgetSettings.name,
             template: $('#widget-apps-template').html(),
 
             events: {

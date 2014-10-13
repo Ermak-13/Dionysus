@@ -1,15 +1,4 @@
-window.Views = window.Views || {};
-window.configurators = window.configurators || [];
-
 (function (window, Backbone, Views) {
-    _.mixin(
-        _.str.exports()
-    );
-
-    _.str.include(
-        'Underscore.string', 'string'
-    );
-    
     var ItemView = Backbone.View.extend({
             initialize: function (item) {
                 this.item = item;

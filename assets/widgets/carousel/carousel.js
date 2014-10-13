@@ -19,7 +19,7 @@
         }),
 
         CarouselWidget = Views.Widget.extend({
-            widgetName: 'carousel',
+            widgetName: widgetSettings.name,
             template: $('#widget-carousel-template').html(),
 
             getContext: function () {

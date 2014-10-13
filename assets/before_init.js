@@ -87,10 +87,16 @@
 
         settings = function (name, defaultSettings) {
             var settingsName = _.sprintf('%s_widget_settings', name),
-                settings = window.storage.load(settingsName) ||
-                           window.newPage.settings.widgets[name] ||
-                           defaultSettings;
+                settings = window.storage.load(settingsName);
+           
+                if (settings) {
+                    settings = JSON.parse(settings);
+                } else {
+                   settings = window.newPage.settings.widgets[name] || 
+                              defaultSettings;
+                }
 
+            settings.name = name;
             return settings;
         };
 

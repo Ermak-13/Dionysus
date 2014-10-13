@@ -1,6 +1,6 @@
 (function (window, page, Views, widgetSettings) {
     var BookmarksWidget = Views.LinkWidget.extend({
-            widgetName: 'bookmarks',
+            widgetName: widgetSettings.name,
             url: 'chrome://bookmarks',
 
             template: $('#widget-bookmarks-template').html()

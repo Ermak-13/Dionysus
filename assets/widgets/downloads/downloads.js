@@ -1,6 +1,6 @@
 (function (window, page, Views, widgetSettings) {
     var DownloadsWidget = Views.LinkWidget.extend({
-            widgetName: 'downloads',
+            widgetName: widgetSettings.name,
             url: 'chrome://downloads',
 
             template: $('#widget-downloads-template').html()

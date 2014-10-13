@@ -36,7 +36,7 @@
         }),
 
         ClockWidget = Views.Widget.extend({
-            widgetName: 'clock',
+            widgetName: widgetSettings.name,
             template: $('#widget-clock-template').html(),
 
             getContext: function() {
