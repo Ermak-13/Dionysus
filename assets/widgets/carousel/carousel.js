@@ -65,8 +65,8 @@
     window,
     window.newPage,
     window.Views,
-    window.newPage.settings.widgets.carousel || {
+    window.settings('carousel', {
         width: 13,
         height: 8
-    }
+    })
 );

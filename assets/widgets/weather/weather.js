@@ -82,8 +82,8 @@
     window,
     window.newPage,
     window.Views,
-    window.newPage.settings.widgets.weather || {
+    window.settings('weather', {
         width: 4,
         height: 3
-    }
+    })
 );

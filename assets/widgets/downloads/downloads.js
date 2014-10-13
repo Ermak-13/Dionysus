@@ -14,8 +14,8 @@
     window,
     window.newPage,
     window.Views,
-    window.newPage.settings.widgets.downloads || {
+    window.settings('downloads', {
         width: 3,
         height: 3
-    }
+    })
 );

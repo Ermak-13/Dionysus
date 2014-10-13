@@ -1,14 +1,15 @@
 module.exports = function(grunt) {
-  var installedJS = [
+var installedJS = [
             'assets/libs/jquery-2.0.3.min.js',
             'assets/libs/underscore-min.js',
-			'assets/libs/underscore.string.min.js',
-			'assets/libs/backbone-min.js',
-			'assets/libs/jquery.gridster.min.js',
-			'assets/libs/mustache.js',
-			'assets/libs/jquery.jcarousel.min.js',
+            'assets/libs/underscore.string.min.js',
+            'assets/libs/backbone-min.js',
+            'assets/libs/jquery.gridster.min.js',
+            'assets/libs/mustache.js',
+            'assets/libs/jquery.jcarousel.min.js',
 
-			'assets/widget.js',
+            'assets/before_init.js',
+            'assets/widget.js',
             'assets/configurator.js',
 
             'assets/widgets/apps/*.js',
@@ -23,8 +24,8 @@ module.exports = function(grunt) {
             'assets/widgets/configurator/base/**/*.js',
             'assets/widgets/configurator/*.js',
 
-			'assets/after_rendering.js'
-		],
+            'assets/after_rendering.js'
+        ],
 
 		installedCSS = [
 			'assets/libs/jquery.gridster.min.css',

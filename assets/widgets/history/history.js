@@ -14,8 +14,8 @@
     window,
     window.newPage,
     window.Views,
-    window.newPage.settings.widgets.history || {
+    window.settings('history', {
         width: 3,
         height: 3
-    }
+    })
 );

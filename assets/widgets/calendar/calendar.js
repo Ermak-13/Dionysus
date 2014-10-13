@@ -53,8 +53,8 @@
     window,
     window.newPage,
     window.Views,
-    window.newPage.settings.widgets.calendar || {
+    window.settings('calendar', {
         width: 4,
         height: 3
-    }
+    })
 );

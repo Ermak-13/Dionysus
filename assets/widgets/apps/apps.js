@@ -125,8 +125,8 @@
     window,
     window.newPage,
     window.Views,
-    window.newPage.settings.widgets.apps || {
+    window.settings('apps', {
         width: 3,
         height: 3
-    }
+    })
 );

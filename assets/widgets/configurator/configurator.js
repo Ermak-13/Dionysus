@@ -62,8 +62,8 @@
     window.newPage,
     window.Views,
     window.configurators,
-    window.newPage.settings.widgets.configurator || {
+    window.settings('configurator', {
         width: 12,
         height: 12
-    }
+    })
 );
