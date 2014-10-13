@@ -23,6 +23,7 @@
         Page = Backbone.View.extend({
             el: '.gridster ul',
 
+            widgets: {},
             enabledWidgets: {},
 
             settings: {
@@ -56,6 +57,13 @@
             },
 
             addWidget: function (Widget, settings, callback) {
+                var _this = this;
+                $(function () {
+                    return _this._addWidget(Widget, settings, callback);
+                });
+            },
+
+            _addWidget: function (Widget, settings, callback) {
                 var widget = new Widget(),
                     widgetName = widget.widgetName,
                     position = window.storage.load(widgetName);
@@ -75,12 +83,15 @@
                 );
 
                 widget.page = this;
+                widget.settings = settings;
 
                 if (callback) {
                     callback(widget);
                 }
 
+                this.widgets[widget.widgetName] = widget;
                 this.enabledWidgets[widget.widgetName] = widget;
+
                 return widget;
             }
         }),
