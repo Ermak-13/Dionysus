@@ -10,7 +10,6 @@ var installedJS = [
 
             'assets/before_init.js',
             'assets/widget.js',
-            'assets/configurator.js',
 
             'assets/widgets/apps/*.js',
             'assets/widgets/bookmarks/*.js',
@@ -20,9 +19,6 @@ var installedJS = [
             'assets/widgets/downloads/*.js',
             'assets/widgets/history/*.js',
             'assets/widgets/weather/*.js',
-
-            'assets/widgets/configurator/base/**/*.js',
-            'assets/widgets/configurator/*.js',
 
             'assets/after_rendering.js'
         ],

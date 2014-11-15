@@ -1,6 +1,5 @@
 (function (window) {
     window.Views = window.Views || {};
-    window.configurators = window.configurators || [];
 
     _.mixin(
         _.str.exports()
