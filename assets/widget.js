@@ -51,7 +51,9 @@
                     );
 
                 this.$el.data('widget-name', this.widgetName);
-                return this.$el.html(html);
+                this.$el.html(html);
+
+                return this;
             },
 
             getContext: function () {

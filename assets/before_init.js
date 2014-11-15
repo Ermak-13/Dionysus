@@ -74,7 +74,7 @@
                 }
 
                 this.gridster.add_widget(
-                    widget.render(),
+                    widget.render().$el,
                     settings.width,
                     settings.height,
                     position.x || 1,
