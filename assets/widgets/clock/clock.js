@@ -47,11 +47,7 @@
 
     page.addWidget(
         ClockWidget,
-        widgetSettings,
-
-        function (clock) {
-            window.setInterval(function() { clock.render(); });
-        }
+        widgetSettings
     );
 
 }) (
