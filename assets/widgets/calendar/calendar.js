@@ -42,11 +42,7 @@
     
     page.addWidget(
         CalendarWidget,
-        widgetSettings,
-
-        function (calendar) {
-            window.setInterval(function () { calendar.render(); }, 60 * 1000);
-        }
+        widgetSettings
     );
 
 }) (
