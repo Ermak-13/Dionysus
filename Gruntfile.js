@@ -7,6 +7,7 @@ var installedJS = [
             'assets/libs/jquery.gridster.min.js',
             'assets/libs/mustache.js',
             'assets/libs/jquery.jcarousel.min.js',
+            'assets/libs/moment.js',
 
             'assets/before_init.js',
             'assets/widget.js',
