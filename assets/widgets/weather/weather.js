@@ -18,7 +18,7 @@
                 var tempC = this.main.temp_min - 273.15;
                 tempC = Math.floor(tempC);
 
-                if (tempC >= 0) {
+                if (tempC > 0) {
                     tempC = _.sprintf('+%s', tempC);
                 }
 
@@ -48,7 +48,7 @@
 
             renderWeather: function () {
                 var xhr = new XMLHttpRequest(),
-                    url = 'http://api.openweathermap.org/data/2.5/weather?q=Minsk,by',
+                    url = 'http://api.openweathermap.org/data/2.5/weather?q=San-Francisco,us',
                     _this = this;
 
                 xhr.open('GET', url, true);

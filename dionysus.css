@@ -134,10 +134,14 @@ html {
 .weather.widget .weather-temperature {
   float: right;
   clear: both;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
   color: #c3b23d;
   text-align: center;
+}
+
+.weather.widget .weather-temperature .celsius {
+    font-weight: normal;
 }
 .widget.apps .table th, td {
   padding: 5px 10px;
