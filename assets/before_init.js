@@ -56,14 +56,11 @@
             },
 
             addWidget: function (Widget, settings, callback) {
-                var _this = this;
-                $(function () {
-                    return _this._addWidget(Widget, settings, callback);
-                });
+                return this._addWidget(Widget, settings, callback);
             },
 
             _addWidget: function (Widget, settings, callback) {
-                var widget = new Widget(),
+                var widget = new Widget(settings),
                     widgetName = widget.widgetName,
                     position = window.storage.load(widgetName);
 

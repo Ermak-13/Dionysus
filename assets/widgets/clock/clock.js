@@ -1,53 +1,54 @@
 (function (window, page, Views, widgetSettings) {
-    var TimeModel = Backbone.Model.extend({
-            initialize: function(time) {
-                this.time = time;
-            },
-
-            toJSON: function () {
-                return {
-                    hours: this.getHours(),
-                    minutes: this.getMinutes(),
-                    seconds: this.getSeconds(),
-                    milliseconds: this.getMilliseconds()
-                };
-            },
-
-            getHours: function () {
-                return this.getNiceFormat(this.time.getHours());
-            },
-
-            getMinutes: function () {
-                return this.getNiceFormat(this.time.getMinutes());
-            },
-
-            getSeconds: function () {
-                return this.getNiceFormat(this.time.getSeconds());
-            },
-
-            getMilliseconds: function () {
-                return this.getNiceFormat(this.time.getMilliseconds());
-            },
-
-            getNiceFormat: function (number, limit) {
-                var _limit = limit || 10;
-                return (number < _limit ? "0" : "") + number;
-            }
-        }),
-
-        ClockWidget = Views.Widget.extend({
+    var ClockWidget = Views.Widget.extend({
             widgetName: widgetSettings.name,
             template: $('#widget-clock-template').html(),
 
-            getContext: function() {
-                var time = new TimeModel(new Date());
-                return time.toJSON();
+            initialize: function (options) {
+                Views.Widget.prototype.initialize.apply(this, arguments);
+
+                this.tz = this.options.tz;
+                this.title = this.options.title;
+            },
+
+            getContext: function () {
+                return {
+                    title: this.title,
+                    time: moment.tz(this.tz).format('HH : mm')
+                };
             }
         });
 
     page.addWidget(
         ClockWidget,
-        widgetSettings
+        _.extend(
+            widgetSettings,
+            {
+                title: 'San-Francisco',
+                tz: 'America/Los_Angeles'
+            }
+        )
+    );
+
+    page.addWidget(
+        ClockWidget,
+        _.extend(
+            widgetSettings,
+            {
+                title: 'Minsk',
+                tz: 'Europe/Minsk'
+            }
+        )
+    );
+
+    page.addWidget(
+        ClockWidget,
+        _.extend(
+            widgetSettings,
+            {
+                title: 'Flori',
+                tz: 'Europe/San_Marino'
+            }
+        )
     );
 
 }) (

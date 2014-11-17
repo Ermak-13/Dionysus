@@ -44,6 +44,10 @@
                 return ['widget', this.widgetName].join(' ');
             },
 
+            initialize: function (options) {
+                this.options = options || {};
+            },
+
             render: function() {
                 var html = Mustache.render(
                         this.template,

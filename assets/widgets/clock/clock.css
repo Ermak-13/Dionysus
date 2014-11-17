@@ -1,9 +1,14 @@
-.widget.clock {
+.widget.clock .header {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.widget.clock .time {
   font-size: 32px;
   font-weight: bold;
 }
 
 .widget.clock .center {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 30px;
 }
