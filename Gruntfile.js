@@ -8,6 +8,8 @@ var installedJS = [
             'assets/libs/mustache.js',
             'assets/libs/jquery.jcarousel.min.js',
             'assets/libs/moment.js',
+            'assets/libs/moment-timezone-data.js',
+            'assets/libs/moment-timezone.js',
 
             'assets/before_init.js',
             'assets/widget.js',
